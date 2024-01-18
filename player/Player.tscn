@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://drvhj82u3lxyw"]
+[gd_scene load_steps=2 format=3 uid="uid://drvhj82u3lxyw"]
+
+[ext_resource type="Texture2D" uid="uid://04sh23xc3vd5" path="res://spaceman.png" id="1_rmnkt"]
 
 [node name="Player" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rmnkt")
