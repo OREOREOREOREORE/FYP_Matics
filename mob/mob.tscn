@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://djlvhqcanrm5v"]
+
+[ext_resource type="Texture2D" uid="uid://doxu40hwiygpb" path="res://mob/assignment.png" id="1_x01bt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ebpep"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_x01bt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Mob" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ebpep")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
