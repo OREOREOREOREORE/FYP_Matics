@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var movement_speed = 120
+var movement_speed = 200
 
 @onready var sprite = $Sprite2D
 
