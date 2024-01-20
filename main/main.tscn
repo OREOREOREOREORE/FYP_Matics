@@ -1,7 +1,15 @@
 [gd_scene load_steps=2 format=3 uid="uid://lhxukalsgpxd"]
+<<<<<<< HEAD
 
 [ext_resource type="PackedScene" uid="uid://drvhj82u3lxyw" path="res://player/Player.tscn" id="1_0cvuv"]
 
 [node name="World" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource("1_0cvuv")]
+=======
+
+[ext_resource type="Script" path="res://main.gd" id="1_dnco4"]
+
+[node name="main" type="Node"]
+script = ExtResource("1_dnco4")
+>>>>>>> 3186e3762c20617c9fde398982f858d017990e84

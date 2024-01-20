@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://djlvhqcanrm5v"]
+[gd_scene load_steps=4 format=3 uid="uid://djlvhqcanrm5v"]
 
+[ext_resource type="Script" path="res://mob/mob.gd" id="1_tbygh"]
 [ext_resource type="Texture2D" uid="uid://doxu40hwiygpb" path="res://mob/assignment.png" id="1_x01bt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ebpep"]
@@ -14,8 +15,11 @@ animations = [{
 }]
 
 [node name="Mob" type="CharacterBody2D"]
+script = ExtResource("1_tbygh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ebpep")
+frame_progress = 0.483732
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-56, -63, 37, -63, 53, -13, 53, 10, 36, 63, -56, 63, -49, 18, -49, -17)
