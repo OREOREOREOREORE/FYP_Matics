@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcmsqvgdmru53"]
+
+[ext_resource type="Script" path="res://F_W.gd" id="1_p2im3"]
+[ext_resource type="Script" path="res://Return.gd" id="2_uvay5"]
+
+[node name="setting menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="F_W" type="CheckButton" parent="VBoxContainer"]
+layout_mode = 2
+text = "Fullscueen"
+script = ExtResource("1_p2im3")
+
+[node name="Return" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Return"
+script = ExtResource("2_uvay5")
+
+[connection signal="toggled" from="VBoxContainer/F_W" to="VBoxContainer/F_W" method="_on_toggled"]
+[connection signal="pressed" from="VBoxContainer/Return" to="VBoxContainer/F_W" method="_on_return_pressed"]

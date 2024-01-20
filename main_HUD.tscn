@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://jyqyf7gf3x71"]
+
+[ext_resource type="Script" path="res://setting.gd" id="1_1nilk"]
+[ext_resource type="Script" path="res://Start.gd" id="1_pvu8c"]
+
+[node name="main_HUD" type="CanvasLayer"]
+
+[node name="Start" type="Button" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -23.5
+offset_right = 23.5
+offset_bottom = 31.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "STAR
+"
+script = ExtResource("1_pvu8c")
+
+[node name="setting" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.5
+offset_top = -15.5
+offset_right = 36.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "SETTING
+"
+script = ExtResource("1_1nilk")
+
+[connection signal="pressed" from="Start" to="Start" method="_on_pressed"]
+[connection signal="pressed" from="setting" to="setting" method="_on_pressed"]
