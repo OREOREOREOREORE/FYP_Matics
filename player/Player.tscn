@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://drvhj82u3lxyw"]
+[gd_scene load_steps=4 format=3 uid="uid://drvhj82u3lxyw"]
 
+[ext_resource type="Script" path="res://player/Player.gd" id="1_i87bs"]
 [ext_resource type="Texture2D" uid="uid://04sh23xc3vd5" path="res://Image/player/spaceman.png" id="1_rmnkt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_suf80"]
@@ -7,6 +8,7 @@ radius = 22.0
 height = 116.0
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_i87bs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_rmnkt")
