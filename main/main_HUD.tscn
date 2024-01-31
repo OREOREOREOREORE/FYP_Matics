@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://jyqyf7gf3x71"]
+[gd_scene load_steps=6 format=3 uid="uid://jyqyf7gf3x71"]
 
 [ext_resource type="Script" path="res://main/setting.gd" id="1_1nilk"]
 [ext_resource type="FontFile" uid="uid://cmnxp73v72n38" path="res://font/MathTimeRegular-MwXw.ttf" id="1_7wws7"]
 [ext_resource type="Script" path="res://main/Start.gd" id="1_pvu8c"]
 [ext_resource type="Script" path="res://main/Credit.gd" id="4_xw11s"]
+[ext_resource type="Script" path="res://main/Button.gd" id="5_t4xft"]
 
 [node name="main_HUD" type="CanvasLayer"]
 
@@ -45,6 +46,14 @@ theme_override_font_sizes/font_size = 30
 text = "CREDIT"
 script = ExtResource("4_xw11s")
 
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_7wws7")
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+script = ExtResource("5_t4xft")
+
 [connection signal="pressed" from="VBoxContainer/Start" to="VBoxContainer/Start" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/Setting" to="VBoxContainer/Setting" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credit" to="VBoxContainer/Credit" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="VBoxContainer/Quit" method="_on_pressed"]
