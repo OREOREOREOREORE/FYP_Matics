@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var movement_speed = 200
+var hp = 10
 
 @onready var sprite = $Sprite2D
 
