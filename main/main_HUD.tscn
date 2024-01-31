@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://main/setting.gd" id="1_1nilk"]
 [ext_resource type="FontFile" uid="uid://cmnxp73v72n38" path="res://font/MathTimeRegular-MwXw.ttf" id="1_7wws7"]
 [ext_resource type="Script" path="res://main/Start.gd" id="1_pvu8c"]
-[ext_resource type="Script" path="res://main/CREDIT.gd" id="4_xw11s"]
+[ext_resource type="Script" path="res://main/Credit.gd" id="4_xw11s"]
 
 [node name="main_HUD" type="CanvasLayer"]
 

@@ -1,15 +1,17 @@
 extends CharacterBody2D
 
+@export var mob_scene: PackedScene
+var player
 
-const SPEED = 300.0
+var speed = 100.0
 var HP = 100
 var def = 10
-var art = 10
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
+var atk = 10
 
 func _ready():
-	pass
+	player = get_node("../Player")
 	
 func _physics_process(delta):
+	var direction = global_position.direction_to(player.global_position)
+	velocity = direction * speed
 	move_and_slide()
