@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjrfhbqghem1x"]
+
+[ext_resource type="AudioStream" uid="uid://btfd0n7sd13sc" path="res://music/MA_MonumentMusic_SpaceStar_MainVersion.wav" id="1_8f5lu"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_8f5lu")
+autoplay = true
+bus = &"BGM"
