@@ -9,4 +9,4 @@ signal hurt(damage)
 
 
 func _on_area_entered(area):
-	
+	pass
