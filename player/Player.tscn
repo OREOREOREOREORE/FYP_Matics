@@ -1,11 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://drvhj82u3lxyw"]
+[gd_scene load_steps=6 format=3 uid="uid://drvhj82u3lxyw"]
 
 [ext_resource type="Script" path="res://player/Player.gd" id="1_i87bs"]
-[ext_resource type="Texture2D" uid="uid://04sh23xc3vd5" path="res://Image/player/spaceman.png" id="1_rmnkt"]
+[ext_resource type="Texture2D" uid="uid://04sh23xc3vd5" path="res://image/player/spaceman.png" id="1_rmnkt"]
+[ext_resource type="PackedScene" uid="uid://8gtgrtoq3k6r" path="res://utility/HurtBox.tscn" id="3_f5pw2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_suf80"]
 radius = 22.0
 height = 116.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nci4i"]
+radius = 23.0
+height = 92.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_i87bs")
@@ -15,3 +20,9 @@ texture = ExtResource("1_rmnkt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_suf80")
+
+[node name="HurtBox" parent="." instance=ExtResource("3_f5pw2")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CapsuleShape2D_nci4i")
+debug_color = Color(0.984314, 0.0941176, 0.231373, 0.419608)

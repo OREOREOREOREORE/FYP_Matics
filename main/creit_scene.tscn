@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c43jo4rcfwtvj"]
 
-[ext_resource type="Script" path="res://main/Creit_scene.gd" id="1_4mols"]
+[ext_resource type="Script" path="res://main/creit_scene.gd" id="1_4mols"]
 [ext_resource type="FontFile" uid="uid://cmnxp73v72n38" path="res://font/MathTimeRegular-MwXw.ttf" id="2_oux75"]
 
 [node name="Creit_scene" type="Control"]
@@ -42,8 +42,28 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_oux75")
+theme_override_font_sizes/font_size = 30
 text = "Link"
 uri = "https://www.fontspace.com/math-time-font-f22683"
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_oux75")
+theme_override_font_sizes/font_size = 30
+text = "BGM
+Space Star
+by Monument Music"
+horizontal_alignment = 1
+
+[node name="LinkButton2" type="LinkButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_oux75")
+theme_override_font_sizes/font_size = 30
+text = "Link"
+uri = "https://motionarray.com/royalty-free-music/space-star-1276980/?q=space&sort_by=most-popular&subcategories=free"
 
 [node name="Ruturn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
