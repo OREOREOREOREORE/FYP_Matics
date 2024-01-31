@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://djlvhqcanrm5v"]
+[gd_scene load_steps=8 format=3 uid="uid://djlvhqcanrm5v"]
 
 [ext_resource type="Script" path="res://mob/mob.gd" id="1_tbygh"]
 [ext_resource type="Texture2D" uid="uid://doxu40hwiygpb" path="res://mob/assignment.png" id="2_u7uwg"]
 [ext_resource type="PackedScene" uid="uid://8gtgrtoq3k6r" path="res://utility/HurtBox.tscn" id="3_1c753"]
+[ext_resource type="PackedScene" uid="uid://c4heeiyy0ip4d" path="res://utility/HitBox.tscn" id="4_sjod2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ebpep"]
 animations = [{
@@ -14,6 +15,13 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1tich"]
+radius = 52.0
+height = 124.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3fvlu"]
+radius = 48.0416
 
 [node name="Mob" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
@@ -27,5 +35,17 @@ frame_progress = 0.483732
 polygon = PackedVector2Array(-56, -63, 37, -63, 53, -13, 53, 10, 36, 63, -56, 63, -49, 18, -49, -17)
 
 [node name="HurtBox" parent="." instance=ExtResource("3_1c753")]
+collision_layer = 2
+collision_mask = 4
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CapsuleShape2D_1tich")
+debug_color = Color(0.909804, 0.164706, 0.619608, 0.419608)
+
+[node name="HitBox" parent="." instance=ExtResource("4_sjod2")]
+collision_layer = 2
+collision_mask = 4
+monitoring = false
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_3fvlu")
