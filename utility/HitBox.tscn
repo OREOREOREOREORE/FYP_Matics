@@ -7,4 +7,4 @@ script = ExtResource("1_vvy5r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-[node name="Timer" type="Timer" parent="."]
+[node name="DisableTimer" type="Timer" parent="."]

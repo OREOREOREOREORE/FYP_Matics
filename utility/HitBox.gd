@@ -1,4 +1,6 @@
 extends Area2D
 
-var damage: int = 10
+var damage = 10
+@onready var collision = $CollisionShape2D
+@onready var disableTimer = $DisableTimer
 

@@ -1,16 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1loqaj3rnifa"]
+[gd_scene load_steps=4 format=3 uid="uid://c1loqaj3rnifa"]
 
 [ext_resource type="PackedScene" uid="uid://drvhj82u3lxyw" path="res://player/Player.tscn" id="1_55nb4"]
 [ext_resource type="Script" path="res://world/world.gd" id="1_eb3vk"]
+[ext_resource type="Texture2D" uid="uid://dsdfyer2e0rh0" path="res://World/tiling_space_background_by_littlefiredragon_d7dz6nj-375w-2x.jpg" id="3_t57n7"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_eb3vk")
+
+[node name="BackGround" type="Sprite2D" parent="."]
+position = Vector2(164.5, 89.0001)
+scale = Vector2(5.07176, 3.88768)
+texture = ExtResource("3_t57n7")
 
 [node name="Player" parent="." instance=ExtResource("1_55nb4")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.6, 0.6)
-position_smoothing_enabled = true
 
 [node name="mob_spawn_timer" type="Timer" parent="."]
 wait_time = 2.0

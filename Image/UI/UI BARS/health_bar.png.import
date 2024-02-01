@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://04sh23xc3vd5"
-path="res://.godot/imported/spaceman.png-439c340e8b4b40e0e2e89c8b1cdf3514.ctex"
+uid="uid://ds8xvgvtod510"
+path="res://.godot/imported/health_bar.png-32749f890e05a67b9d48c1357b593276.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Image/player/spaceman.png"
-dest_files=["res://.godot/imported/spaceman.png-439c340e8b4b40e0e2e89c8b1cdf3514.ctex"]
+source_file="res://Image/UI/UI BARS/health_bar.png"
+dest_files=["res://.godot/imported/health_bar.png-32749f890e05a67b9d48c1357b593276.ctex"]
 
 [params]
 

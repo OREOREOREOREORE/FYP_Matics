@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://8lnpeupach1o"]
+
+[ext_resource type="Texture2D" uid="uid://8w1vnuecaek8" path="res://Image/UI/UI BARS/empty_bar.png" id="1_4a5vh"]
+[ext_resource type="Texture2D" uid="uid://ds8xvgvtod510" path="res://Image/UI/UI BARS/health_bar.png" id="2_lrhbb"]
+
+[node name="PlayerUI" type="CanvasLayer"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.5
+offset_top = -35.5
+offset_right = 49.5
+offset_bottom = 35.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 110
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+value = 100.0
+texture_under = ExtResource("1_4a5vh")
+texture_progress = ExtResource("2_lrhbb")
