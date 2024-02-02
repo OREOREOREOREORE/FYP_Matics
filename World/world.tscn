@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1loqaj3rnifa"]
+[gd_scene load_steps=6 format=3 uid="uid://c1loqaj3rnifa"]
 
 [ext_resource type="PackedScene" uid="uid://drvhj82u3lxyw" path="res://player/Player.tscn" id="1_55nb4"]
 [ext_resource type="Script" path="res://world/world.gd" id="1_eb3vk"]
-[ext_resource type="Texture2D" uid="uid://dsdfyer2e0rh0" path="res://World/tiling_space_background_by_littlefiredragon_d7dz6nj-375w-2x.jpg" id="3_t57n7"]
+[ext_resource type="Texture2D" uid="uid://dsdfyer2e0rh0" path="res://world/tiling_space_background_by_littlefiredragon_d7dz6nj-375w-2x.jpg" id="3_t57n7"]
+[ext_resource type="Script" path="res://World/VBoxContainer.gd" id="4_4t6fp"]
+[ext_resource type="FontFile" uid="uid://cmnxp73v72n38" path="res://font/MathTimeRegular-MwXw.ttf" id="5_3kv20"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_eb3vk")
@@ -21,4 +23,44 @@ zoom = Vector2(0.6, 0.6)
 wait_time = 2.0
 autostart = true
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -239.5
+offset_top = -68.5
+offset_right = 239.5
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("4_4t6fp")
+
+[node name="failed_label" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("5_3kv20")
+theme_override_font_sizes/font_size = 100
+text = "You failed"
+
+[node name="retry" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_3kv20")
+theme_override_font_sizes/font_size = 100
+text = "RETRY"
+
+[node name="quit" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_3kv20")
+theme_override_font_sizes/font_size = 100
+text = "QUIT
+"
+
 [connection signal="timeout" from="mob_spawn_timer" to="." method="_on_mob_spawn_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/retry" to="CanvasLayer/VBoxContainer" method="_on_retry_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/quit" to="CanvasLayer/VBoxContainer" method="_on_quit_pressed"]

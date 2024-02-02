@@ -5,11 +5,12 @@ var mob_number = 30
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	$CanvasLayer.set_visible(false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if($Player.hp <=0):
+		_player_dead_()
 
 func _on_mob_spawn_timer_timeout():
 	
@@ -31,3 +32,6 @@ func _on_mob_spawn_timer_timeout():
 		mob.position = Vector2(mob_x_position, mob_y_position)
 		add_child(mob)
 		mob_number -= 1
+		
+func _player_dead_():
+	$CanvasLayer.set_visible(true)

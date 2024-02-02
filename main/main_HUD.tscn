@@ -52,7 +52,7 @@ text = "CREDIT"
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_7wws7")
 theme_override_font_sizes/font_size = 30
-text = "Quit"
+text = "QUIT"
 
 [node name="VSplitContainer" type="VSplitContainer" parent="main_HUD_container"]
 layout_mode = 2

@@ -60,6 +60,7 @@ bus_name = "BGM"
 
 [node name="Return" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_s8kga")
 theme_override_font_sizes/font_size = 30
 text = "Return"
