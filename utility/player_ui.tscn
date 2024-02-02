@@ -19,7 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_top = 110
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer"]
+[node name="HealthBar" type="TextureProgressBar" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 value = 100.0

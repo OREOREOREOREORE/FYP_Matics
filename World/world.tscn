@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://drvhj82u3lxyw" path="res://player/Player.tscn" id="1_55nb4"]
 [ext_resource type="Script" path="res://world/world.gd" id="1_eb3vk"]
-[ext_resource type="Texture2D" uid="uid://dsdfyer2e0rh0" path="res://world/tiling_space_background_by_littlefiredragon_d7dz6nj-375w-2x.jpg" id="3_t57n7"]
+[ext_resource type="Texture2D" uid="uid://dsdfyer2e0rh0" path="res://World/tiling_space_background_by_littlefiredragon_d7dz6nj-375w-2x.jpg" id="3_t57n7"]
 [ext_resource type="Script" path="res://World/VBoxContainer.gd" id="4_4t6fp"]
 [ext_resource type="FontFile" uid="uid://cmnxp73v72n38" path="res://font/MathTimeRegular-MwXw.ttf" id="5_3kv20"]
 

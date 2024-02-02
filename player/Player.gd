@@ -4,24 +4,27 @@ var movement_speed = 200
 var hp = 100
 
 @onready var sprite = $Sprite2D
+@onready var healthbar = get_node("PlayerUI/MarginContainer/HealthBar")
 
 func _physics_process(delta):
 	movement()
+	update_health()
 
 func movement():
-	var x_mov = Input.get_action_strength("Right") - Input.get_action_strength("Left")
-	var y_mov = Input.get_action_strength("Down") - Input.get_action_strength("Up")
-	var mov = Vector2(x_mov, y_mov)
+	var mov = Input.get_vector("Left", "Right", "Up", "Down").normalized()
 	
 	if mov.x > 0:
 		sprite.flip_h = false
 	elif mov.x < 0:
 		sprite.flip_h = true
 	
-	velocity = mov.normalized()*movement_speed
+	velocity = mov*movement_speed
 	move_and_slide()
 
 func take_damage(damage: int):
 	hp -= damage
 	print(hp)
+
+func update_health():
+	healthbar.value = hp
 	
