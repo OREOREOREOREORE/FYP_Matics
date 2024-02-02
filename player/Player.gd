@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var movement_speed = 200
-var hp = 10
+var hp = 100
 
 @onready var sprite = $Sprite2D
 
@@ -20,3 +20,8 @@ func movement():
 	
 	velocity = mov.normalized()*movement_speed
 	move_and_slide()
+
+func take_damage(damage: int):
+	hp -= damage
+	print(hp)
+	

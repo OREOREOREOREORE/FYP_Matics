@@ -10,8 +10,8 @@ radius = 22.0
 height = 116.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nci4i"]
-radius = 23.0
-height = 92.0
+radius = 27.0
+height = 122.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2
@@ -27,7 +27,7 @@ shape = SubResource("CapsuleShape2D_suf80")
 collision_layer = 2
 collision_mask = 8
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBox"]
+[node name="PlayerHurtBoxCollision" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CapsuleShape2D_nci4i")
 debug_color = Color(0.984314, 0.0941176, 0.231373, 0.419608)
 
