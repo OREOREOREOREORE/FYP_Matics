@@ -54,9 +54,6 @@ theme_override_fonts/font = ExtResource("1_7wws7")
 theme_override_font_sizes/font_size = 30
 text = "QUIT"
 
-[node name="VSplitContainer" type="VSplitContainer" parent="main_HUD_container"]
-layout_mode = 2
-
 [connection signal="pressed" from="main_HUD_container/Start" to="main_HUD_container" method="_on_start_pressed"]
 [connection signal="pressed" from="main_HUD_container/Setting" to="main_HUD_container" method="_on_setting_pressed"]
 [connection signal="pressed" from="main_HUD_container/Credit" to="main_HUD_container" method="_on_credit_pressed"]

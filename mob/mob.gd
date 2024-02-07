@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var mob_scene: PackedScene
+#@export var mob_scene: PackedScene
 var player
 
 var speed = 100.0
