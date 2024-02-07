@@ -8,7 +8,7 @@ var hp = 100
 
 func _physics_process(delta):
 	movement()
-	update_health()
+	update_healthbar()
 
 func movement():
 	var mov = Input.get_vector("Left", "Right", "Up", "Down").normalized()
@@ -23,8 +23,10 @@ func movement():
 
 func take_damage(damage: int):
 	hp -= damage
-	print(hp)
+	if hp <= 0:
+		hp = 0
+		set_physics_process(false)
 
-func update_health():
+func update_healthbar():
 	healthbar.value = hp
 	
