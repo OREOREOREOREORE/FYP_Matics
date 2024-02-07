@@ -61,6 +61,7 @@ theme_override_font_sizes/font_size = 100
 text = "QUIT
 "
 
+[connection signal="dead" from="Player" to="." method="_on_player_dead"]
 [connection signal="timeout" from="mob_spawn_timer" to="." method="_on_mob_spawn_timer_timeout"]
 [connection signal="pressed" from="dead_HUD/VBoxContainer/retry" to="dead_HUD/VBoxContainer" method="_on_retry_pressed"]
 [connection signal="pressed" from="dead_HUD/VBoxContainer/quit" to="dead_HUD/VBoxContainer" method="_on_quit_pressed"]

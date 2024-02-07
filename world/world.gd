@@ -9,8 +9,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if($Player.hp <=0):
-		_player_dead_()
+	pass
 
 func _on_mob_spawn_timer_timeout():
 	
@@ -32,6 +31,6 @@ func _on_mob_spawn_timer_timeout():
 		mob.position = Vector2(mob_x_position, mob_y_position)
 		add_child(mob)
 		mob_number -= 1
-		
-func _player_dead_():
+
+func _on_player_dead():
 	$dead_HUD.set_visible(true)

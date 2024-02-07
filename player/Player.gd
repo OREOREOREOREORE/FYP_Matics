@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var healthbar = get_node("PlayerUI/MarginContainer/HealthBar")
 
 signal playerHealth(damage)
+signal dead
 
 func _physics_process(delta):
 	movement()
@@ -29,6 +30,7 @@ func take_damage(damage: int):
 		health = 0
 		set_physics_process(false)
 		emit_signal("playerHealth", health)
+		dead.emit()
 
 func update_healthbar():
 	healthbar.value = health
