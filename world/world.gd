@@ -34,3 +34,4 @@ func _on_mob_spawn_timer_timeout():
 
 func _on_player_dead():
 	$dead_HUD.set_visible(true)
+	#$Player.queue_free()

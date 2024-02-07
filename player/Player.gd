@@ -28,9 +28,10 @@ func take_damage(damage: int):
 	health -= damage
 	if health <= 0:
 		health = 0
-		set_physics_process(false)
+		#set_physics_process(false)
 		emit_signal("playerHealth", health)
 		dead.emit()
+		print(dead)
 
 func update_healthbar():
 	healthbar.value = health
