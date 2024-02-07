@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
-var movement_speed = 200
-var hp = 100
+@export var movement_speed = 200
+@export var health = 100
 
-@onready var sprite = $Sprite2D
+@onready var player = $playerImg
 @onready var healthbar = get_node("PlayerUI/MarginContainer/HealthBar")
+
+signal playerHealth(damage)
 
 func _physics_process(delta):
 	movement()
@@ -14,19 +16,22 @@ func movement():
 	var mov = Input.get_vector("Left", "Right", "Up", "Down").normalized()
 	
 	if mov.x > 0:
-		sprite.flip_h = false
+		player.flip_h = false
 	elif mov.x < 0:
-		sprite.flip_h = true
+		player.flip_h = true
 	
 	velocity = mov*movement_speed
 	move_and_slide()
 
 func take_damage(damage: int):
-	hp -= damage
-	if hp <= 0:
-		hp = 0
+	health -= damage
+	if health <= 0:
+		health = 0
 		set_physics_process(false)
+		emit_signal("playerHealth", health)
 
 func update_healthbar():
-	healthbar.value = hp
+	healthbar.value = health
+
+
 	

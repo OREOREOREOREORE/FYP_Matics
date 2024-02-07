@@ -4,7 +4,6 @@ extends Area2D
 @onready var collistion = $PlayerHurtBoxCollision as CollisionShape2D
 @onready var disableTimer = $DisableTimer as Timer
 
-signal hurt(damage)
 
 
 
@@ -12,7 +11,7 @@ func _on_area_entered(area: HitBox) -> void:
 	if area == null:
 		return
 	if owner.has_method("take_damage"):
-		owner.take_damage(10)
+		owner.take_damage(50)
 		collistion.set_deferred("disabled", true)
 		disableTimer.start()
 

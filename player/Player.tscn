@@ -17,7 +17,7 @@ height = 122.0
 collision_mask = 2
 script = ExtResource("1_i87bs")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="playerImg" type="Sprite2D" parent="."]
 texture = ExtResource("1_rmnkt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
