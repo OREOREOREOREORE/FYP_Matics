@@ -2,21 +2,18 @@ extends Node2D
 
 var screen_size
 var mob_number = 30
+var mob_x_position
+var mob_y_position
+var vpr
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	$dead_HUD.set_visible(false)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	$dead_HUD.set_visible(false) # Make sure the HUD is not visible at the game start
 
 func _on_mob_spawn_timer_timeout():
 	
 	if mob_number > 0:
-		var vpr = get_viewport_rect().size * randf_range(1.5,2)
-		var mob_x_position
-		var mob_y_position
+		vpr = get_viewport_rect().size * randf_range(1.5,2)
+		
 		var mob = preload("res://mob/mob.tscn").instantiate()
 		
 		if(randf( ) >= 0.5):
@@ -34,4 +31,3 @@ func _on_mob_spawn_timer_timeout():
 
 func _on_player_dead():
 	$dead_HUD.set_visible(true)
-	#$Player.queue_free()

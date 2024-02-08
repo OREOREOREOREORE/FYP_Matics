@@ -27,18 +27,18 @@ radius = 92.0
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_tbygh")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="mob_img" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ebpep")
 frame_progress = 0.483732
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="mob_collision" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-56, -63, 37, -63, 53, -13, 53, 10, 36, 63, -56, 63, -49, 18, -49, -17)
 
 [node name="HurtBox" parent="." instance=ExtResource("3_1c753")]
 collision_layer = 8
 collision_mask = 4
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBox"]
+[node name="HurtBoxCollision" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CapsuleShape2D_1tich")
 debug_color = Color(0.909804, 0.164706, 0.619608, 0.419608)
 
@@ -47,6 +47,6 @@ collision_layer = 8
 collision_mask = 2
 monitoring = false
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitBox"]
+[node name="mob_hitbox" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(-2, 2)
 shape = SubResource("CircleShape2D_3fvlu")

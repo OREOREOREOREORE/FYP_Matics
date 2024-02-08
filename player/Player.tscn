@@ -27,7 +27,7 @@ shape = SubResource("CapsuleShape2D_suf80")
 collision_layer = 2
 collision_mask = 8
 
-[node name="PlayerHurtBoxCollision" type="CollisionShape2D" parent="HurtBox"]
+[node name="HurtBoxCollision" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CapsuleShape2D_nci4i")
 debug_color = Color(0.984314, 0.0941176, 0.231373, 0.419608)
 

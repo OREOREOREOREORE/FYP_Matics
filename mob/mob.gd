@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var player = get_node("../Player")
 
 var speed = 100.0
-var HP = 100
+var hp = 100
 var def = 10
 var atk = 10
 	
