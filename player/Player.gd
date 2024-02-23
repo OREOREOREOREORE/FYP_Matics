@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
-@export var movement_speed = 200
-@export var health = 100
+@export var SPD = 200
+@export var HP = 100
+@export var DEF = 40
+@export var ATK = 40
 
 @onready var player = $playerImg
 @onready var healthbar = get_node("PlayerUI/MarginContainer/HealthBar")
@@ -20,19 +22,20 @@ func movement():
 	elif mov.x < 0:
 		player.flip_h = true
 	
-	velocity = mov*movement_speed
+	velocity = SPD * mov
 	move_and_slide()
 
-func take_damage(damage: int):
-	health -= damage
-	if health <= 0:
-		health = 0
+func take_damage(ATK: int):
+	
+	HP = HP - (ATK - DEF)
+	if HP <= 0:
+		HP = 0
 		update_healthbar()
 		set_physics_process(false)
 		dead.emit()
 
 func update_healthbar():
-	healthbar.value = health
+	healthbar.value = HP
 
 
 	
