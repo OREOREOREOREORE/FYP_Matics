@@ -1,7 +1,7 @@
 extends Node2D
 
 var screen_size
-var mob_number = 30
+var mob_number = 10
 var mob_x_position
 var mob_y_position
 var vpr

@@ -9,4 +9,5 @@ script = ExtResource("1_vvy5r")
 
 [node name="DisableTimer" type="Timer" parent="."]
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="DisableTimer" to="." method="_on_disable_timer_timeout"]

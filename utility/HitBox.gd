@@ -7,10 +7,16 @@ var damage = 10
 @onready var collision = $CollisionShape2D
 @onready var disableTimer = $DisableTimer
 
-func hitBoxDisable():
-	collision
+func _on_area_entered(area):
+	if not area is HurtBox: return
+	if area.owner == owner: return
+	
 
 func _on_disable_timer_timeout():
 	pass # Replace with function body.
 
 # We need more than one hitbox.gd for future weapon systen
+
+
+
+	
