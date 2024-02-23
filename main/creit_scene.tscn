@@ -14,7 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4mols")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Creit_scene_container" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -28,7 +28,7 @@ offset_bottom = 51.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Font" type="Label" parent="Creit_scene_container"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_oux75")
@@ -38,7 +38,7 @@ Math Time! Font
 by GeelynEdits"
 horizontal_alignment = 1
 
-[node name="LinkButton" type="LinkButton" parent="VBoxContainer"]
+[node name="Font_Link" type="LinkButton" parent="Creit_scene_container"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 1, 1)
@@ -47,7 +47,7 @@ theme_override_font_sizes/font_size = 30
 text = "Link"
 uri = "https://www.fontspace.com/math-time-font-f22683"
 
-[node name="Label2" type="Label" parent="VBoxContainer"]
+[node name="BGM" type="Label" parent="Creit_scene_container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_oux75")
 theme_override_font_sizes/font_size = 30
@@ -56,7 +56,7 @@ Space Star
 by Monument Music"
 horizontal_alignment = 1
 
-[node name="LinkButton2" type="LinkButton" parent="VBoxContainer"]
+[node name="BGM_Link" type="LinkButton" parent="Creit_scene_container"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 1, 1)
@@ -65,10 +65,10 @@ theme_override_font_sizes/font_size = 30
 text = "Link"
 uri = "https://motionarray.com/royalty-free-music/space-star-1276980/?q=space&sort_by=most-popular&subcategories=free"
 
-[node name="Ruturn" type="Button" parent="VBoxContainer"]
+[node name="Ruturn" type="Button" parent="Creit_scene_container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_oux75")
 theme_override_font_sizes/font_size = 30
 text = "Ruturn"
 
-[connection signal="pressed" from="VBoxContainer/Ruturn" to="." method="_on_ruturn_pressed"]
+[connection signal="pressed" from="Creit_scene_container/Ruturn" to="." method="_on_ruturn_pressed"]

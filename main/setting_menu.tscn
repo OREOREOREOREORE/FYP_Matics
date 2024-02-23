@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://cmnxp73v72n38" path="res://font/MathTimeRegular-MwXw.ttf" id="2_s8kga"]
 [ext_resource type="Script" path="res://main/BGU_Slider.gd" id="3_nmku4"]
 
-[node name="setting menu" type="Control"]
+[node name="setting_menu" type="Control"]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -20,7 +20,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("1_nydge")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="setting_menu_Container" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -35,35 +35,35 @@ offset_bottom = 41.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Fullscreen_switch" type="CheckButton" parent="VBoxContainer"]
+[node name="Fullscreen_switch" type="CheckButton" parent="setting_menu_Container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_s8kga")
 theme_override_font_sizes/font_size = 30
 text = "Fullscreen"
 
-[node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer"]
+[node name="HSplitContainer" type="HSplitContainer" parent="setting_menu_Container"]
 layout_mode = 2
 dragger_visibility = 1
 
-[node name="BGM" type="Label" parent="VBoxContainer/HSplitContainer"]
+[node name="BGM" type="Label" parent="setting_menu_Container/HSplitContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_s8kga")
 theme_override_font_sizes/font_size = 30
 text = "BGM"
 
-[node name="BGU_Slider" type="HSlider" parent="VBoxContainer/HSplitContainer"]
+[node name="BGU_Slider" type="HSlider" parent="setting_menu_Container/HSplitContainer"]
 layout_mode = 2
 max_value = 1.0
 step = 0.001
 script = ExtResource("3_nmku4")
 bus_name = "BGM"
 
-[node name="Return" type="Button" parent="VBoxContainer"]
+[node name="Return" type="Button" parent="setting_menu_Container"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_s8kga")
 theme_override_font_sizes/font_size = 30
 text = "Return"
 
-[connection signal="toggled" from="VBoxContainer/Fullscreen_switch" to="." method="_on_fullscreen_switch_toggled"]
-[connection signal="pressed" from="VBoxContainer/Return" to="." method="_on_return_pressed"]
+[connection signal="toggled" from="setting_menu_Container/Fullscreen_switch" to="." method="_on_fullscreen_switch_toggled"]
+[connection signal="pressed" from="setting_menu_Container/Return" to="." method="_on_return_pressed"]

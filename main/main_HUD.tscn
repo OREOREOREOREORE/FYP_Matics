@@ -19,7 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wi5p1")
 
-[node name="Label" type="Label" parent="main_HUD_container"]
+[node name="Title" type="Label" parent="main_HUD_container"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 1

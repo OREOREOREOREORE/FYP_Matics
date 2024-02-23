@@ -1,11 +1,10 @@
 extends Control
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	if(get_window().mode == 0):
-		$VBoxContainer/Fullscreen_switch.button_pressed = false
+		$setting_menu_Container/Fullscreen_switch.button_pressed = false
 	else: if(get_window().mode == 3):
-		$VBoxContainer/Fullscreen_switch.button_pressed = true
+		$setting_menu_Container/Fullscreen_switch.button_pressed = true
 	
 func _on_fullscreen_switch_toggled(toggled_on):
 	if toggled_on == true:

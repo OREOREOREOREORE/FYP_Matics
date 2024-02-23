@@ -27,6 +27,7 @@ func take_damage(damage: int):
 	health -= damage
 	if health <= 0:
 		health = 0
+		update_healthbar()
 		set_physics_process(false)
 		dead.emit()
 

@@ -1,0 +1,6 @@
+HurtBox:	HurtBoxCollision
+HitBox:		HitBoxCollisio
+Health:		HP
+Speed:		SPD
+Damage:		ATK
+Defense:	DEF
