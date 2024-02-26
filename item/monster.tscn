@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyr6b8gj4r6jw"]
+
+[ext_resource type="Texture2D" uid="uid://ceicxbqi47nv4" path="res://Image/monster.png" id="1_m7f41"]
+[ext_resource type="Script" path="res://item/monster.gd" id="1_tmkdb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dl5iw"]
+size = Vector2(25, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gk3al"]
+size = Vector2(27, 72)
+
+[node name="monster" type="CharacterBody2D"]
+script = ExtResource("1_tmkdb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_m7f41")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 0
+visibility_layer = 0
+position = Vector2(-1.5, 3)
+shape = SubResource("RectangleShape2D_dl5iw")
+
+[node name="mostter_box" type="Area2D" parent="."]
+position = Vector2(-0.5, 2)
+collision_layer = 16
+collision_mask = 2
+
+[node name="monster_box" type="CollisionShape2D" parent="mostter_box"]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_gk3al")
+
+[connection signal="area_entered" from="mostter_box" to="." method="_on_mostter_box_area_entered"]

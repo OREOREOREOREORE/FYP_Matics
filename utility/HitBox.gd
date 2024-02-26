@@ -1,8 +1,6 @@
 class_name HitBox
 extends Area2D
 
-var damage = 10
-
 # Basic on the hurt box, the name of hit box of both player and mob should be the same 
 @onready var collision = get_node("../HitBox/HitBoxCollision")
 @onready var disableTimer = $DisableTimer

@@ -9,13 +9,15 @@ extends Area2D
 @onready var disableTimer = $DisableTimer as Timer
 
 func _on_area_entered(area: HitBox) -> void:
-
+	
+	print(owner)
+	
 	if area == null:
 		return
 		
 	if owner.has_method("take_damage"):
 		
-		owner.take_damage(area.owner_ATK)
+		owner.take_damage(area.owner.ATK)
 		
 		collistion.set_deferred("disabled", true)
 		disableTimer.start()
