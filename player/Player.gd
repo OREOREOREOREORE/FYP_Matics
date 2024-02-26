@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var SPD = 200
 @export var HP = 100
-@export var DEF = 40
+@export var DEF = 0
 @export var ATK = 40
 
 @onready var player = $playerImg
@@ -26,10 +26,8 @@ func movement():
 	move_and_slide()
 
 func take_damage(ATK: int):
-	
-	HP = HP - (ATK - DEF)
+	HP = clamp(HP - (ATK - DEF), 0.0, 100.0)
 	if HP <= 0:
-		HP = 0
 		update_healthbar()
 		set_physics_process(false)
 		dead.emit()

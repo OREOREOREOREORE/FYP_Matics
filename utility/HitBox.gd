@@ -8,7 +8,7 @@ var damage = 10
 @onready var disableTimer = $DisableTimer
 
 func hitBoxDisable():
-	collision
+	pass
 
 func _on_disable_timer_timeout():
 	pass # Replace with function body.
