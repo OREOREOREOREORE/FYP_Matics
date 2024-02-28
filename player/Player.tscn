@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://04sh23xc3vd5" path="res://Image/player/spaceman.png" id="1_rmnkt"]
 [ext_resource type="PackedScene" uid="uid://8gtgrtoq3k6r" path="res://utility/HurtBox.tscn" id="3_f5pw2"]
 [ext_resource type="PackedScene" uid="uid://8lnpeupach1o" path="res://utility/player_ui.tscn" id="4_ddaov"]
-[ext_resource type="PackedScene" uid="uid://c4heeiyy0ip4d" path="res://utility/HitBox.tscn" id="5_0k2ep"]
+[ext_resource type="PackedScene" uid="uid://drhukxp22cp4w" path="res://player/attack/eraser_thrown.tscn" id="6_mubrh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_suf80"]
 radius = 22.0
@@ -14,11 +14,10 @@ height = 116.0
 radius = 27.0
 height = 122.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_72sje"]
-radius = 43.0
-height = 150.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_424gg"]
+radius = 329.024
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 2
 script = ExtResource("1_i87bs")
 
@@ -26,9 +25,11 @@ script = ExtResource("1_i87bs")
 texture = ExtResource("1_rmnkt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CapsuleShape2D_suf80")
 
 [node name="HurtBox" parent="." instance=ExtResource("3_f5pw2")]
+visible = false
 collision_layer = 2
 collision_mask = 8
 
@@ -38,9 +39,15 @@ debug_color = Color(0.984314, 0.0941176, 0.231373, 0.419608)
 
 [node name="PlayerUI" parent="." instance=ExtResource("4_ddaov")]
 
-[node name="HitBox" parent="." instance=ExtResource("5_0k2ep")]
-collision_layer = 4
-collision_mask = 8
+[node name="Attack" type="Node2D" parent="."]
 
-[node name="HitBoxCollision" type="CollisionShape2D" parent="HitBox"]
-shape = SubResource("CapsuleShape2D_72sje")
+[node name="Eraser_thrown" parent="Attack" instance=ExtResource("6_mubrh")]
+
+[node name="DetectionArea" type="Area2D" parent="."]
+visible = false
+
+[node name="Coll_DetectionArea" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_424gg")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

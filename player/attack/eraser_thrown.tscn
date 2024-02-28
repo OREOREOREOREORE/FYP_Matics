@@ -1,12 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://drhukxp22cp4w"]
+[gd_scene load_steps=4 format=3 uid="uid://drhukxp22cp4w"]
 
 [ext_resource type="Texture2D" uid="uid://ce30356fq7tnq" path="res://player/attack/Eraser.png" id="1_6mpik"]
 [ext_resource type="Script" path="res://player/attack/eraser_thrown.gd" id="1_hisci"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_43a1e"]
+size = Vector2(81, 54)
+
 [node name="Eraser_thrown" type="Area2D"]
+collision_layer = 4
+collision_mask = 8
 script = ExtResource("1_hisci")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-
 [node name="eraser" type="Sprite2D" parent="."]
+rotation = 1.5708
 texture = ExtResource("1_6mpik")
+
+[node name="eraser_HITBOX" type="CollisionShape2D" parent="."]
+light_mask = 8
+visibility_layer = 4
+position = Vector2(7.5, 6)
+shape = SubResource("RectangleShape2D_43a1e")
+debug_color = Color(0.447059, 0.552941, 0.607843, 0.419608)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
