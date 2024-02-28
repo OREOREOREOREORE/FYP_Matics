@@ -2,12 +2,14 @@ extends Area2D
 
 var HP = 1
 var SPD = 100
-var DMG = 50
+var ATK = 50
 var KB = 100
 var ATK_Size = 1.0
 
 
 @onready var player = get_node("../")
+
+
 var target = Vector2.ZERO
 var angle = Vector2.ZERO
 
@@ -19,11 +21,9 @@ func _ready():
 	tween.play()
 
 
-func _on_area_entered(area):
-	queue_free()
-
 func _physics_process(delta):
 	position += angle*SPD*delta
 
 
-
+func _on_visible_on_screen_enabler_2d_screen_exited():
+	queue_free()

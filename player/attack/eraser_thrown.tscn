@@ -4,24 +4,32 @@
 [ext_resource type="Script" path="res://player/attack/eraser_thrown.gd" id="1_hisci"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_43a1e"]
-size = Vector2(81, 54)
+size = Vector2(36, 20)
 
-[node name="Eraser_thrown" type="Area2D"]
+[node name="Eraser_thrown" type="Area2D" groups=["player_weapon_attack"]]
+top_level = true
 collision_layer = 4
 collision_mask = 8
 script = ExtResource("1_hisci")
 
 [node name="eraser" type="Sprite2D" parent="."]
+position = Vector2(0, -1.49012e-08)
 rotation = 1.5708
+scale = Vector2(0.370864, 0.444907)
 texture = ExtResource("1_6mpik")
 
 [node name="eraser_HITBOX" type="CollisionShape2D" parent="."]
 light_mask = 8
 visibility_layer = 4
-position = Vector2(7.5, 6)
+position = Vector2(3, 2)
 shape = SubResource("RectangleShape2D_43a1e")
 debug_color = Color(0.447059, 0.552941, 0.607843, 0.419608)
 
 [node name="Timer" type="Timer" parent="."]
 
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(1.25, 1.5)
+scale = Vector2(0.275, 1.05)
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

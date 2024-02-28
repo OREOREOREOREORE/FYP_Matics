@@ -13,7 +13,9 @@ func _on_area_entered(area) -> void:
 	if area == null:
 		return
 		
-	if owner.has_method("take_damage"):
+	if area.is_in_group("player_weapon_attack"):
+		owner.take_damage(area.ATK)
+	else: #has method
 		owner.take_damage(area.owner.ATK)
 		collistion.set_deferred("disabled", true)
 		disableTimer.start()

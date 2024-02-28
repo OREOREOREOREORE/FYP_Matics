@@ -16,8 +16,6 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func take_damage(ATK_O: int):
-	
-	HP = HP - (ATK_O - DEF)
-	
+	HP = HP - (ATK_O - DEF)	
 	if HP <= 0:
 		queue_free()
