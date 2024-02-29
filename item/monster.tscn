@@ -8,6 +8,8 @@ size = Vector2(27, 72)
 
 [node name="monster" type="CharacterBody2D"]
 light_mask = 0
+collision_layer = 16
+collision_mask = 2
 script = ExtResource("1_tmkdb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

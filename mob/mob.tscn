@@ -17,11 +17,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1tich"]
-radius = 70.0
-height = 140.0
+radius = 56.0
+height = 116.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3fvlu"]
-radius = 70.0286
+radius = 58.3095
 
 [node name="Mob" type="CharacterBody2D" groups=["Enemy"]]
 scale = Vector2(0.5, 0.5)
