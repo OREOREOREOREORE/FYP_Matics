@@ -28,6 +28,7 @@ func _physics_process(delta):
 		monster.position = Vector2(hp_monster_x, hp_monster_y)
 		add_child(monster)
 		hp_monster_num+=1
+		print(hp_monster_num)
 		
 
 func _on_mob_spawn_timer_timeout():
