@@ -17,11 +17,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1tich"]
-radius = 90.0
-height = 180.0
+radius = 70.0
+height = 140.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3fvlu"]
-radius = 92.0
+radius = 70.0286
 
 [node name="Mob" type="CharacterBody2D" groups=["Enemy"]]
 scale = Vector2(0.5, 0.5)
@@ -48,5 +48,4 @@ collision_mask = 2
 monitoring = false
 
 [node name="HitBoxCollision" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(-2, 2)
 shape = SubResource("CircleShape2D_3fvlu")
