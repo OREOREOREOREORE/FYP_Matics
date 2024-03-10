@@ -9,7 +9,7 @@ size = Vector2(50, 25)
 [node name="Eraser_thrown" type="Area2D" groups=["player_weapon_attack"]]
 top_level = true
 collision_layer = 4
-collision_mask = 8
+collision_mask = 136
 script = ExtResource("1_hisci")
 
 [node name="eraser" type="Sprite2D" parent="."]

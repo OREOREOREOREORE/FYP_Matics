@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsdfyer2e0rh0"
-path="res://.godot/imported/tiling_space_background_by_littlefiredragon_d7dz6nj-375w-2x.jpg-6c3e094e5601011f83fd08dd459b3e1f.ctex"
+uid="uid://b3jrswysq6bpl"
+path="res://.godot/imported/MainCharacterImg.png-932f851d0580ebe84f185e8c1c157434.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/tiling_space_background_by_littlefiredragon_d7dz6nj-375w-2x.jpg"
-dest_files=["res://.godot/imported/tiling_space_background_by_littlefiredragon_d7dz6nj-375w-2x.jpg-6c3e094e5601011f83fd08dd459b3e1f.ctex"]
+source_file="res://Image/player/MainCharacterImg.png"
+dest_files=["res://.godot/imported/MainCharacterImg.png-932f851d0580ebe84f185e8c1c157434.ctex"]
 
 [params]
 

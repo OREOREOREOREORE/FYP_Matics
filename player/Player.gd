@@ -1,15 +1,18 @@
 extends CharacterBody2D
 
-@export var SPD = 200
+@export var SPD = 500
 @export var HP = 100
 @export var DEF = 0
 @export var ATK = 40
+@export var EXP = 0
+@export var Level = 0
 
 @onready var player = $playerImg
 @onready var healthbar = get_node("PlayerUI/MarginContainer/HealthBar")
 var enemies = []
 
 signal dead
+
 
 #Attack
 var eraser_thrown = preload("res://player/attack/eraser_thrown.tscn")
@@ -52,11 +55,13 @@ func _on_eraser_attack_timer_timeout():
 		add_child(eraser_attack)
 
 func _on_detection_area_body_entered(body):
+	print("Eny detected")
 	if body.is_in_group("Enemy") && not enemies.has(body):
 		enemies.append(body)
 		
 
 func _on_detection_area_body_exited(body):
+	print("eny exited")
 	if body.is_in_group("Enemy"):
 		enemies.erase(body)
 
@@ -64,6 +69,9 @@ func get_random_target():
 	if enemies.size() > 0:
 		return enemies.pick_random().global_position
 	else: return Vector2.UP
+	
+func exp_up(exp):
+	EXP += exp
 
 
 

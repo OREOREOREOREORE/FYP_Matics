@@ -1,4 +1,4 @@
-class_name HurtBox
+
 extends Area2D
 
 # The name of hurt box node and collosion should named as same
