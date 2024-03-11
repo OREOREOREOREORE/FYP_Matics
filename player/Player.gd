@@ -10,7 +10,6 @@ extends CharacterBody2D
 @export var EXP_required = 100
 
 @onready var player = $playerImg
-@onready var healthbar = get_node("PlayerUI/Control/HBoxContainer/VBoxContainer/HealthBar")
 @onready var player_ui = get_node("PlayerUI")
 var enemies = []
 
@@ -26,7 +25,7 @@ func _ready():
 
 func _physics_process(delta):
 	movement()
-	update_healthbar()
+	player_ui.update_healthbar()
 	
 
 func movement():
@@ -39,20 +38,15 @@ func movement():
 	
 	velocity = SPD * mov
 	move_and_slide()
-
+	
 func take_damage(ATK_0: int):
 	HP -= clamp(ATK_0 - DEF, 0.0, 100.0)
 	if HP <= 0:
-		update_healthbar()
+		player_ui.update_healthbar()
 		set_physics_process(false)
 		dead.emit()
 
-func update_healthbar():
-	healthbar.value = HP
-	#if HP >= 50:
-	#	healthbar.visible = false
-	#else:
-	#	healthbar.visible = true
+
 
 func _on_eraser_attack_timer_timeout():
 	if enemies.size() > 0:

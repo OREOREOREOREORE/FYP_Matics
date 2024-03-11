@@ -43,6 +43,7 @@ texture_progress = ExtResource("3_1rhxu")
 
 [node name="EXP_percentage" type="Label" parent="Control/HBoxContainer/VBoxContainer/ExperienceBar"]
 layout_mode = 2
-offset_top = 16.0
-offset_right = 98.0
-offset_bottom = 39.0
+offset_left = 35.0
+offset_top = -3.0
+offset_right = 57.0
+offset_bottom = 20.0
