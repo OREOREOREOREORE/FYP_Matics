@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://8lnpeupach1o"]
+[gd_scene load_steps=5 format=3 uid="uid://8lnpeupach1o"]
 
 [ext_resource type="Texture2D" uid="uid://8w1vnuecaek8" path="res://Image/UI/UI BARS/empty_bar.png" id="1_4a5vh"]
-[ext_resource type="Texture2D" uid="uid://ds8xvgvtod510" path="res://Image/UI/UI BARS/health_bar.png" id="2_lrhbb"]
+[ext_resource type="Script" path="res://utility/player_ui.gd" id="1_5iaov"]
+[ext_resource type="Texture2D" uid="uid://ds8xvgvtod510" path="res://Image/player/health_bar.png" id="2_lrhbb"]
 [ext_resource type="Texture2D" uid="uid://p8d8lia3hkv" path="res://Image/UI/UI BARS/exp_bar.png" id="3_1rhxu"]
 
 [node name="PlayerUI" type="CanvasLayer"]
+script = ExtResource("1_5iaov")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -17,9 +19,8 @@ layout_mode = 0
 offset_right = 139.0
 offset_bottom = 32.0
 
-[node name="Label" type="Label" parent="Control/HBoxContainer"]
+[node name="Level" type="Label" parent="Control/HBoxContainer"]
 layout_mode = 2
-text = "1234"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
 layout_mode = 2
@@ -32,10 +33,16 @@ value = 100.0
 texture_under = ExtResource("1_4a5vh")
 texture_progress = ExtResource("2_lrhbb")
 
-[node name="HealthBar2" type="TextureProgressBar" parent="Control/HBoxContainer/VBoxContainer"]
+[node name="ExperienceBar" type="TextureProgressBar" parent="Control/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 value = 100.0
 texture_under = ExtResource("1_4a5vh")
 texture_progress = ExtResource("3_1rhxu")
+
+[node name="EXP_percentage" type="Label" parent="Control/HBoxContainer/VBoxContainer/ExperienceBar"]
+layout_mode = 2
+offset_top = 16.0
+offset_right = 98.0
+offset_bottom = 39.0

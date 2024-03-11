@@ -10,7 +10,7 @@ extends CharacterBody2D
 @export var EXP_required = 100
 
 @onready var player = $playerImg
-@onready var healthbar = get_node("PlayerUI/MarginContainer/HealthBar")
+@onready var healthbar = get_node("PlayerUI/Control/HBoxContainer/VBoxContainer/HealthBar")
 @onready var player_ui = get_node("PlayerUI")
 var enemies = []
 
@@ -85,7 +85,9 @@ func exp_up(exp_gained):
 		EXP_required = update_EXP_required()
 		level_up()
 		leveled = true
+	player_ui.SetExperiencebar()
 	player_ui.UpdateExperiencebar(leveled)
+	
 
 func level_up():
 	Level += 1
