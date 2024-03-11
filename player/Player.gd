@@ -11,6 +11,8 @@ extends CharacterBody2D
 
 @onready var player = $playerImg
 @onready var player_ui = get_node("PlayerUI")
+
+var melee_num = 0
 var enemies = []
 
 signal dead
@@ -18,6 +20,7 @@ signal dead
 
 #Attack
 var eraser_thrown = preload("res://player/attack/eraser_thrown.tscn")
+var pan = preload("res://player/attack/pan.tscn")
 
 func _ready():
 	_on_eraser_attack_timer_timeout()
@@ -26,6 +29,10 @@ func _ready():
 func _physics_process(delta):
 	movement()
 	player_ui.update_healthbar()
+	if Input.is_action_just_pressed("Melee") && melee_num == 0:
+		var pan_att = pan.instantiate()
+		add_child(pan_att)
+		melee_num += 1
 	
 
 func movement():
