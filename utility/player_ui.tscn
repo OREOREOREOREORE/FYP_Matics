@@ -1,27 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://8lnpeupach1o"]
+[gd_scene load_steps=4 format=3 uid="uid://8lnpeupach1o"]
 
 [ext_resource type="Texture2D" uid="uid://8w1vnuecaek8" path="res://Image/UI/UI BARS/empty_bar.png" id="1_4a5vh"]
 [ext_resource type="Texture2D" uid="uid://ds8xvgvtod510" path="res://Image/UI/UI BARS/health_bar.png" id="2_lrhbb"]
+[ext_resource type="Texture2D" uid="uid://p8d8lia3hkv" path="res://Image/UI/UI BARS/exp_bar.png" id="3_1rhxu"]
 
 [node name="PlayerUI" type="CanvasLayer"]
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -49.5
-offset_top = -35.5
-offset_right = 49.5
-offset_bottom = 35.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_top = 110
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 138.0
+offset_bottom = 32.0
 
-[node name="HealthBar" type="TextureProgressBar" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_right = 139.0
+offset_bottom = 32.0
+
+[node name="Label" type="Label" parent="Control/HBoxContainer"]
+layout_mode = 2
+text = "1234"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HealthBar" type="TextureProgressBar" parent="Control/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 value = 100.0
 texture_under = ExtResource("1_4a5vh")
 texture_progress = ExtResource("2_lrhbb")
+
+[node name="HealthBar2" type="TextureProgressBar" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+value = 100.0
+texture_under = ExtResource("1_4a5vh")
+texture_progress = ExtResource("3_1rhxu")
