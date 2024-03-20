@@ -46,6 +46,9 @@ func movement():
 	velocity = SPD * mov
 	move_and_slide()
 	
+func attack():
+	pass
+	
 func take_damage(ATK_0: int):
 	HP -= clamp(ATK_0 - DEF, 0.0, 100.0)
 	if HP <= 0:

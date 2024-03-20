@@ -17,11 +17,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1tich"]
-radius = 64.0
-height = 128.0
+radius = 20.0
+height = 44.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3fvlu"]
-radius = 64.0
+radius = 22.0907
 
 [node name="Mob" type="CharacterBody2D" groups=["Enemy"]]
 scale = Vector2(0.5, 0.5)
@@ -30,11 +30,15 @@ collision_mask = 3
 script = ExtResource("1_tbygh")
 
 [node name="mob_img" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 2)
+scale = Vector2(0.342437, 0.319231)
 sprite_frames = SubResource("SpriteFrames_ebpep")
 frame_progress = 0.483732
 
 [node name="mob_collision" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-56, -63, 37, -63, 53, -13, 53, 10, 36, 63, -56, 63, -49, 18, -49, -17)
+position = Vector2(-0.206547, 2)
+scale = Vector2(0.329093, 0.319444)
+polygon = PackedVector2Array(-57.4092, -62.6087, 37, -63, 53, -13, 53, 10, 36, 63, -56, 63, -49, 18, -49, -17)
 
 [node name="HurtBox" parent="." instance=ExtResource("3_1c753")]
 collision_layer = 64
