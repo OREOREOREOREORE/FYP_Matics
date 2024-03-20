@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var SPD = 500
+@export var SPD = 110
 @export var HP = 100
 @export var DEF = 0
 @export var ATK = 40

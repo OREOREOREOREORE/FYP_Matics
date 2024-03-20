@@ -2,22 +2,26 @@
 
 [ext_resource type="PackedScene" uid="uid://drvhj82u3lxyw" path="res://player/Player.tscn" id="1_55nb4"]
 [ext_resource type="Script" path="res://world/world.gd" id="1_eb3vk"]
-[ext_resource type="Texture2D" uid="uid://dsdfyer2e0rh0" path="res://World/tiling_space_background_by_littlefiredragon_d7dz6nj-375w-2x.jpg" id="3_t57n7"]
 [ext_resource type="Script" path="res://world/dead_HUD_container.gd" id="4_4t6fp"]
 [ext_resource type="FontFile" uid="uid://cmnxp73v72n38" path="res://font/MathTimeRegular-MwXw.ttf" id="5_3kv20"]
+[ext_resource type="PackedScene" uid="uid://dou6t3nt6ou1u" path="res://World/map.tscn" id="5_p8k73"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_eb3vk")
 
-[node name="BackGround" type="Sprite2D" parent="."]
-position = Vector2(269, -47.0002)
-scale = Vector2(18.2933, 11.6225)
-texture = ExtResource("3_t57n7")
+[node name="Map" parent="." instance=ExtResource("5_p8k73")]
 
 [node name="Player" parent="." instance=ExtResource("1_55nb4")]
+position = Vector2(76, -57)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(0.6, 0.6)
+position = Vector2(1, 5)
+zoom = Vector2(2, 2)
+limit_left = -1616
+limit_top = -800
+limit_right = 1520
+limit_bottom = 832
+editor_draw_limits = true
 
 [node name="mob_spawn_timer" type="Timer" parent="."]
 wait_time = 2.0
