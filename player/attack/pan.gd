@@ -14,7 +14,7 @@ func _process(delta):
 	var key_id: int = animation.track_find_key(track_id, 0.0)
 	animation.track_set_key_value(track_id, key_id, rotation)
 	key_id = animation.track_find_key(track_id, 0.5)
-	animation.track_set_key_value(track_id, key_id, rotation)
+	animation.track_set_key_value(track_id, key_id, rotation + deg_to_rad(180))
 	
 	print(key_id)
 	
