@@ -11,12 +11,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -43.5
-offset_top = -58.0
-offset_right = 43.5
-offset_bottom = 58.0
+offset_left = -138.5
+offset_top = -85.5
+offset_right = 138.5
+offset_bottom = 85.5
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
 script = ExtResource("1_wi5p1")
 
 [node name="Title" type="Label" parent="main_HUD_container"]

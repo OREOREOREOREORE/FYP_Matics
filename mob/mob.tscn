@@ -24,7 +24,6 @@ height = 44.0
 radius = 22.0907
 
 [node name="Mob" type="CharacterBody2D" groups=["Enemy"]]
-scale = Vector2(0.5, 0.5)
 collision_layer = 8
 collision_mask = 3
 script = ExtResource("1_tbygh")
@@ -37,8 +36,7 @@ frame_progress = 0.483732
 
 [node name="mob_collision" type="CollisionPolygon2D" parent="."]
 position = Vector2(-0.206547, 2)
-scale = Vector2(0.329093, 0.319444)
-polygon = PackedVector2Array(-57.4092, -62.6087, 37, -63, 53, -13, 53, 10, 36, 63, -56, 63, -49, 18, -49, -17)
+polygon = PackedVector2Array(-17.7935, -20, 13.2065, -20, 19.2065, -6, 19.2065, 6, 12.2065, 20, -18.7935, 19, -16.7935, 1, -16.7935, -7)
 
 [node name="HurtBox" parent="." instance=ExtResource("3_1c753")]
 collision_layer = 64

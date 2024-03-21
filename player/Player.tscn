@@ -6,12 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://8lnpeupach1o" path="res://utility/player_ui.tscn" id="4_ddaov"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_suf80"]
-radius = 22.0
-height = 116.0
+radius = 12.0
+height = 24.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nci4i"]
-radius = 27.0
-height = 122.0
+radius = 12.0
+height = 24.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_424gg"]
 radius = 637.66
@@ -27,11 +27,9 @@ scale = Vector2(0.226563, 0.216937)
 texture = ExtResource("2_djadr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CapsuleShape2D_suf80")
 
 [node name="HurtBox" parent="." instance=ExtResource("3_f5pw2")]
-visible = false
 collision_layer = 16
 collision_mask = 128
 monitorable = true

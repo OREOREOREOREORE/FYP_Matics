@@ -12,9 +12,9 @@ func _process(delta):
 	var animation: Animation = $AnimationPlayer.get_animation("att")
 	var track_id = animation.find_track(".:rotation", Animation.TYPE_VALUE)
 	var key_id: int = animation.track_find_key(track_id, 0.0)
-	animation.track_set_key_value(track_id, key_id, rotation)
+	animation.track_set_key_value(track_id, key_id, rotation - + deg_to_rad(45))
 	key_id = animation.track_find_key(track_id, 0.5)
-	animation.track_set_key_value(track_id, key_id, rotation + deg_to_rad(180))
+	animation.track_set_key_value(track_id, key_id, rotation + deg_to_rad(45))
 	
 	print(key_id)
 	

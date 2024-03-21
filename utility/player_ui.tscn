@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://8lnpeupach1o"]
+[gd_scene load_steps=6 format=3 uid="uid://8lnpeupach1o"]
 
 [ext_resource type="Texture2D" uid="uid://8w1vnuecaek8" path="res://Image/UI/UI BARS/empty_bar.png" id="1_4a5vh"]
 [ext_resource type="Script" path="res://utility/player_ui.gd" id="1_5iaov"]
-[ext_resource type="Texture2D" uid="uid://ds8xvgvtod510" path="res://Image/player/health_bar.png" id="2_lrhbb"]
+[ext_resource type="Texture2D" uid="uid://dp43xvwfqs8gb" path="res://Image/UI/UI BARS/HPBlank.png" id="2_utafs"]
 [ext_resource type="Texture2D" uid="uid://p8d8lia3hkv" path="res://Image/UI/UI BARS/exp_bar.png" id="3_1rhxu"]
+[ext_resource type="Texture2D" uid="uid://cfwxor4630o6y" path="res://Image/UI/UI BARS/HPFull.png" id="3_hosrx"]
 
 [node name="PlayerUI" type="CanvasLayer"]
 script = ExtResource("1_5iaov")
@@ -30,8 +31,9 @@ theme_override_constants/separation = 0
 layout_mode = 2
 size_flags_horizontal = 4
 value = 100.0
-texture_under = ExtResource("1_4a5vh")
-texture_progress = ExtResource("2_lrhbb")
+fill_mode = 5
+texture_under = ExtResource("2_utafs")
+texture_progress = ExtResource("3_hosrx")
 
 [node name="ExperienceBar" type="TextureProgressBar" parent="Control/HBoxContainer/VBoxContainer"]
 layout_mode = 2

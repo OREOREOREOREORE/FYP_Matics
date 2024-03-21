@@ -95,6 +95,7 @@ func exp_up(exp_gained):
 
 func level_up():
 	Level += 1
+	#get_tree().paused = true
 
 func update_EXP_required():
 	var exp_cap = 0

@@ -9,7 +9,7 @@ length = 0.001
 
 [sub_resource type="Animation" id="Animation_iqc24"]
 resource_name = "att"
-length = 0.5
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -17,7 +17,7 @@ tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.5708, -1.5708]
@@ -30,7 +30,8 @@ _data = {
 }
 
 [node name="Pan" type="Area2D" groups=["player_weapon_attack"]]
-rotation = 1.5708
+rotation = -1.5708
+scale = Vector2(0.5, 0.5)
 collision_layer = 4
 collision_mask = 64
 script = ExtResource("1_himod")
