@@ -23,7 +23,7 @@ func update_healthbar():
 func SetExperiencebar():
 	experience_bar.max_value = player.EXP_required
 	experience_bar.value = player.EXP
-	expreience_bar_lable.set_text(str(float(player.EXP* 100)/player.EXP_required) + " %")
+	expreience_bar_lable.set_text(str((snappedf(float(player.EXP* 100)/player.EXP_required, 0.01))) + " %")
 
 func UpdateExperiencebar(leveled):
 	if leveled == true:

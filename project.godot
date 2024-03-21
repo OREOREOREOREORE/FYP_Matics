@@ -22,6 +22,7 @@ buses/default_bus_layout="res://music/default_bus_layout.tres"
 [autoload]
 
 Bgm="*res://music/BGM.tscn"
+UpgradeDb="*res://UpgradeDB/upgrade_db.tscn"
 
 [input]
 
