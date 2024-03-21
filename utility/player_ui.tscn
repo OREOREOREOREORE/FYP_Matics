@@ -10,13 +10,15 @@ script = ExtResource("1_5iaov")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 138.0
-offset_bottom = 32.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
-layout_mode = 0
-offset_right = 139.0
+layout_mode = 2
+offset_right = 103.0
 offset_bottom = 32.0
 
 [node name="Level" type="Label" parent="Control/HBoxContainer"]
@@ -47,3 +49,39 @@ offset_left = 35.0
 offset_top = -3.0
 offset_right = 57.0
 offset_bottom = 20.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -11.5
+offset_right = 49.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="Control/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Button" parent="Control/HBoxContainer2/PanelContainer2"]
+layout_mode = 2
+text = "HP"
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Button" parent="Control/HBoxContainer2/PanelContainer"]
+layout_mode = 2
+text = "Speed"
+
+[node name="PanelContainer3" type="PanelContainer" parent="Control/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Button" parent="Control/HBoxContainer2/PanelContainer3"]
+layout_mode = 2
+text = "ATK"
