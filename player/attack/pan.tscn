@@ -30,8 +30,8 @@ _data = {
 }
 
 [node name="Pan" type="Area2D" groups=["player_weapon_attack"]]
-rotation = -1.5708
-scale = Vector2(0.5, 0.5)
+rotation = 1.5708
+scale = Vector2(0.2, 0.2)
 collision_layer = 4
 collision_mask = 64
 script = ExtResource("1_himod")
