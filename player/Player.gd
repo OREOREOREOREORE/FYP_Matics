@@ -17,13 +17,22 @@ var enemies = []
 
 signal dead
 
+#AttackTimer
+@onready var eraserTimer = get_node("%eraser_Timer")
+@onready var eraser_attackTimer = get_node("%eraser_attackTimer")
 
 #Attack
 var eraser_thrown = preload("res://player/attack/eraser_thrown.tscn")
 var pan = preload("res://player/attack/pan.tscn")
 
+#Eraser
+var eraser_ammo = 0
+var eraser_baseammo = 1
+var eraser_attackspeed = 1.5
+var eraser_level = 1
+
 func _ready():
-	_on_eraser_attack_timer_timeout()
+	attack()
 	
 
 func _physics_process(delta):
@@ -47,7 +56,11 @@ func movement():
 	move_and_slide()
 	
 func attack():
-	pass
+	if eraser_level > 0:
+		print("Shoot")
+		eraserTimer.wait_time = eraser_attackspeed
+		if eraserTimer.is_stopped():
+			eraserTimer.start()
 	
 func take_damage(ATK_0: int):
 	HP -= clamp(ATK_0 - DEF, 0.0, 100.0)
@@ -55,15 +68,25 @@ func take_damage(ATK_0: int):
 		player_ui.update_healthbar()
 		set_physics_process(false)
 		dead.emit()
-
-
+		
+		
+func _on_eraser_timer_timeout():
+	eraser_ammo += eraser_baseammo + 0 # additionl
+	eraser_attackTimer.start()
 
 func _on_eraser_attack_timer_timeout():
-	if enemies.size() > 0:
+	if enemies.size() > 0 and eraser_ammo > 0:
+		print("Shoot")
 		var eraser_attack = eraser_thrown.instantiate()
 		eraser_attack.position = position
 		eraser_attack.target = get_random_target()
 		add_child(eraser_attack)
+		eraser_ammo -= 1
+		if eraser_ammo > 0:
+			eraser_attackTimer.start()
+		else:
+			eraser_attackTimer.stop()
+		
 
 func _on_detection_area_body_entered(body):
 	print("Eny detected")
@@ -111,6 +134,8 @@ func update_EXP_required():
 	
 	
 	
+
+
 
 
 

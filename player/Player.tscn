@@ -42,9 +42,13 @@ debug_color = Color(0.984314, 0.0941176, 0.231373, 0.419608)
 
 [node name="Attack" type="Node2D" parent="."]
 
-[node name="eraser_attackTimer" type="Timer" parent="Attack"]
-wait_time = 3.0
-autostart = true
+[node name="eraser_Timer" type="Timer" parent="Attack"]
+unique_name_in_owner = true
+wait_time = 1.5
+
+[node name="eraser_attackTimer" type="Timer" parent="Attack/eraser_Timer"]
+unique_name_in_owner = true
+wait_time = 0.025
 
 [node name="DetectionArea" type="Area2D" parent="."]
 visible = false
@@ -55,6 +59,7 @@ monitorable = false
 [node name="Coll_DetectionArea" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_424gg")
 
-[connection signal="timeout" from="Attack/eraser_attackTimer" to="." method="_on_eraser_attack_timer_timeout"]
+[connection signal="timeout" from="Attack/eraser_Timer" to="." method="_on_eraser_timer_timeout"]
+[connection signal="timeout" from="Attack/eraser_Timer/eraser_attackTimer" to="." method="_on_eraser_attack_timer_timeout"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

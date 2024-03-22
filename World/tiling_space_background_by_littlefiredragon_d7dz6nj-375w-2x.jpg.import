@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dsdfyer2e0rh0"
-path="res://.godot/imported/tiling_space_background_by_littlefiredragon_d7dz6nj-375w-2x.jpg-99566cbe64408b4ca4c8a11cf72093f2.ctex"
+path="res://.godot/imported/tiling_space_background_by_littlefiredragon_d7dz6nj-375w-2x.jpg-6c3e094e5601011f83fd08dd459b3e1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world/tiling_space_background_by_littlefiredragon_d7dz6nj-375w-2x.jpg"
-dest_files=["res://.godot/imported/tiling_space_background_by_littlefiredragon_d7dz6nj-375w-2x.jpg-99566cbe64408b4ca4c8a11cf72093f2.ctex"]
+source_file="res://World/tiling_space_background_by_littlefiredragon_d7dz6nj-375w-2x.jpg"
+dest_files=["res://.godot/imported/tiling_space_background_by_littlefiredragon_d7dz6nj-375w-2x.jpg-6c3e094e5601011f83fd08dd459b3e1f.ctex"]
 
 [params]
 
