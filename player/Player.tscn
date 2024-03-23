@@ -48,7 +48,7 @@ wait_time = 1.5
 
 [node name="eraser_attackTimer" type="Timer" parent="Attack/eraser_Timer"]
 unique_name_in_owner = true
-wait_time = 0.025
+wait_time = 0.2
 
 [node name="DetectionArea" type="Area2D" parent="."]
 visible = false

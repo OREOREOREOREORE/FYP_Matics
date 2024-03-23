@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var SPD = 150.0
+var SPD = 100
 var HP = 10
 var DEF = 10
 var ATK  = 10

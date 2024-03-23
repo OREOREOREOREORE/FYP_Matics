@@ -71,12 +71,11 @@ func take_damage(ATK_0: int):
 		
 		
 func _on_eraser_timer_timeout():
-	eraser_ammo += eraser_baseammo + 0 # additionl
+	eraser_ammo += eraser_baseammo + 2 # additionl
 	eraser_attackTimer.start()
 
 func _on_eraser_attack_timer_timeout():
 	if enemies.size() > 0 and eraser_ammo > 0:
-		print("Shoot")
 		var eraser_attack = eraser_thrown.instantiate()
 		eraser_attack.position = position
 		eraser_attack.target = get_random_target()
@@ -123,7 +122,7 @@ func level_up():
 func update_EXP_required():
 	var exp_cap = 0
 	if Level < 10:
-		exp_cap = Level * 100
+		exp_cap = Level * 125
 	elif Level < 20:
 		exp_cap = 124 * (Level - 19) * 6
 	else:
