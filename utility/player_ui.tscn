@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://8lnpeupach1o"]
+[gd_scene load_steps=7 format=3 uid="uid://8lnpeupach1o"]
 
 [ext_resource type="Texture2D" uid="uid://8w1vnuecaek8" path="res://Image/UI/UI BARS/empty_bar.png" id="1_4a5vh"]
 [ext_resource type="Script" path="res://utility/player_ui.gd" id="1_5iaov"]
 [ext_resource type="Texture2D" uid="uid://p8d8lia3hkv" path="res://Image/UI/UI BARS/exp_bar.png" id="3_1rhxu"]
 [ext_resource type="Texture2D" uid="uid://ds8xvgvtod510" path="res://Image/UI/UI BARS/health_bar.png" id="3_pyc2v"]
+[ext_resource type="FontFile" uid="uid://dbunwsilhul38" path="res://font/ThaleahFat.ttf" id="5_7btdb"]
+[ext_resource type="AudioStream" uid="uid://cip7nq26y5t6x" path="res://music/new-level-142995.mp3" id="6_47e5x"]
 
 [node name="PlayerUI" type="CanvasLayer"]
 script = ExtResource("1_5iaov")
@@ -50,38 +52,43 @@ offset_top = -3.0
 offset_right = 57.0
 offset_bottom = 20.0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control"]
+[node name="Levelup" type="Panel" parent="Control"]
+process_mode = 2
 visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -49.0
-offset_top = -11.5
-offset_right = 49.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="PanelContainer2" type="PanelContainer" parent="Control/HBoxContainer2"]
 layout_mode = 2
+anchor_left = 0.096
+anchor_top = 0.154
+anchor_right = 0.834
+anchor_bottom = 0.769
+offset_left = -3.592
+offset_top = 0.207991
+offset_right = 0.231941
+offset_bottom = 7.68797
 
-[node name="Label" type="Button" parent="Control/HBoxContainer2/PanelContainer2"]
-layout_mode = 2
-text = "HP"
+[node name="lbl_levelup" type="Label" parent="Control/Levelup"]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 12.0
+offset_right = 400.0
+offset_bottom = 27.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("5_7btdb")
+text = "LEVEL UP!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="Control/HBoxContainer2"]
-layout_mode = 2
+[node name="ItemOptions" type="HBoxContainer" parent="Control/Levelup"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 82.0
+offset_top = 67.0
+offset_right = 282.0
+offset_bottom = 317.0
 
-[node name="Label" type="Button" parent="Control/HBoxContainer2/PanelContainer"]
-layout_mode = 2
-text = "Speed"
-
-[node name="PanelContainer3" type="PanelContainer" parent="Control/HBoxContainer2"]
-layout_mode = 2
-
-[node name="Label" type="Button" parent="Control/HBoxContainer2/PanelContainer3"]
-layout_mode = 2
-text = "ATK"
+[node name="snd_levelup" type="AudioStreamPlayer2D" parent="Control/Levelup"]
+unique_name_in_owner = true
+position = Vector2(-78, -65)
+scale = Vector2(2, 2)
+stream = ExtResource("6_47e5x")
+volume_db = -15.0
+autoplay = true

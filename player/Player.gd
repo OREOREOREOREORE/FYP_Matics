@@ -11,6 +11,11 @@ extends CharacterBody2D
 
 @onready var player = $playerImg
 @onready var player_ui = get_node("PlayerUI")
+@onready var levelPanel = get_node("PlayerUI/Control/HBoxContainer/Levelup")
+@onready var upgradeOpts = get_node("%ItemOptions")
+@onready var sndLevelup = get_node("%snd_levelup")
+
+
 
 var melee_num = 0
 var enemies = []
@@ -117,7 +122,11 @@ func exp_up(exp_gained):
 
 func level_up():
 	Level += 1
-	#get_tree().paused = true
+	levelPanel.set_display_folded(true)
+	var option = 0
+	var optionsmax = 3
+		
+	get_tree().paused = true
 
 func update_EXP_required():
 	var exp_cap = 0

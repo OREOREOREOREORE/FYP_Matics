@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://drhukxp22cp4w"]
+[gd_scene load_steps=5 format=3 uid="uid://drhukxp22cp4w"]
 
 [ext_resource type="Texture2D" uid="uid://ce30356fq7tnq" path="res://player/attack/Eraser.png" id="1_6mpik"]
 [ext_resource type="Script" path="res://player/attack/eraser_thrown.gd" id="1_hisci"]
+[ext_resource type="AudioStream" uid="uid://dad6x2otoinot" path="res://movement-swipe-whoosh-3-186577.mp3" id="3_tkoas"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_43a1e"]
 size = Vector2(5, 4.75)
@@ -27,8 +28,13 @@ debug_color = Color(0.447059, 0.552941, 0.607843, 0.419608)
 [node name="Timer" type="Timer" parent="."]
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
-position = Vector2(-1, 0)
-scale = Vector2(0.11875, 0.325)
+position = Vector2(-1.09375, 0.625)
+scale = Vector2(0.109375, 0.2625)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_tkoas")
+volume_db = -15.0
+autoplay = true
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

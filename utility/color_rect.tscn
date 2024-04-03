@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmv4h27ws8uj7"]
+
+[ext_resource type="Script" path="res://utility/ItemOption.gd" id="1_fvc0m"]
+[ext_resource type="Texture2D" uid="uid://ce30356fq7tnq" path="res://player/attack/Eraser.png" id="1_yvooe"]
+[ext_resource type="FontFile" uid="uid://dbunwsilhul38" path="res://font/ThaleahFat.ttf" id="2_ndncf"]
+
+[node name="ItemOption" type="ColorRect"]
+custom_minimum_size = Vector2(50, 180)
+anchors_preset = -1
+anchor_right = 0.173
+anchor_bottom = 0.44
+offset_right = 0.704008
+offset_bottom = -0.119998
+color = Color(0.215686, 0.145098, 0.266667, 1)
+script = ExtResource("1_fvc0m")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 0
+offset_left = 70.0
+offset_top = 14.0
+offset_right = 130.0
+offset_bottom = 74.0
+color = Color(0, 0, 0, 1)
+
+[node name="ItemImg" type="TextureRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 10.0
+offset_right = 99.0
+offset_bottom = 106.0
+rotation = -6.28319
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_yvooe")
+
+[node name="item_name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 73.0
+offset_right = 127.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("2_ndncf")
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="item_description" type="Label" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 110.0
+offset_right = 167.0
+offset_bottom = 248.0
+theme_override_fonts/font = ExtResource("2_ndncf")
+text = "Description"
+
+[node name="item_level" type="Label" parent="."]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 63.0
+offset_right = 114.0
+offset_bottom = 78.0
+theme_override_fonts/font = ExtResource("2_ndncf")
+text = "LV: 1"
+
+[node name="Button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 285.0
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
