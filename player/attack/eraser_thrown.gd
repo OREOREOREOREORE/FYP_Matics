@@ -19,7 +19,7 @@ func _ready():
 	var tween = create_tween()
 	tween.tween_property(self,"scale",Vector2(1,1)*ATK_Size,1).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	tween.play()
-
+	
 
 
 func _physics_process(delta):

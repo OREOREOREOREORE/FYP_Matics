@@ -11,7 +11,7 @@ extends CharacterBody2D
 
 @onready var player = $playerImg
 @onready var player_ui = get_node("PlayerUI")
-@onready var levelPanel = get_node("PlayerUI/Control/HBoxContainer/Levelup")
+@onready var levelPanel = get_node("PlayerUI/Control/")
 @onready var upgradeOpts = get_node("%ItemOptions")
 @onready var sndLevelup = get_node("%snd_levelup")
 
@@ -34,6 +34,7 @@ var pan = preload("res://player/attack/pan.tscn")
 var eraser_ammo = 0
 var eraser_baseammo = 1
 var eraser_attackspeed = 1.5
+var eraser_limitammo = 3
 var eraser_level = 1
 
 func _ready():
@@ -76,8 +77,9 @@ func take_damage(ATK_0: int):
 		
 		
 func _on_eraser_timer_timeout():
-	eraser_ammo += eraser_baseammo + 2 # additionl
-	eraser_attackTimer.start()
+	if (eraser_ammo < eraser_limitammo):
+		eraser_ammo += eraser_baseammo + 2 # additionl
+		eraser_attackTimer.start()
 
 func _on_eraser_attack_timer_timeout():
 	if enemies.size() > 0 and eraser_ammo > 0:
@@ -88,7 +90,7 @@ func _on_eraser_attack_timer_timeout():
 		eraser_ammo -= 1
 		if eraser_ammo > 0:
 			eraser_attackTimer.start()
-		else:
+		elif (eraser_ammo <= 0):
 			eraser_attackTimer.stop()
 		
 
@@ -122,11 +124,10 @@ func exp_up(exp_gained):
 
 func level_up():
 	Level += 1
-	levelPanel.set_display_folded(true)
-	var option = 0
-	var optionsmax = 3
-		
-	get_tree().paused = true
+	#levelPanel.visible = true
+	#var option = 0
+	#var optionsmax = 3
+	#get_tree().paused = true
 
 func update_EXP_required():
 	var exp_cap = 0
