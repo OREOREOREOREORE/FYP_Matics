@@ -11,9 +11,10 @@ extends CharacterBody2D
 
 @onready var player = $playerImg
 @onready var player_ui = get_node("PlayerUI")
-@onready var levelPanel = get_node("PlayerUI/Control/")
-@onready var upgradeOpts = get_node("%ItemOptions")
-@onready var sndLevelup = get_node("%snd_levelup")
+@onready var levelPanel = get_node("PlayerUI/Control/Levelup")
+@onready var upgradeOpts = get_node("PlayerUI/Control/Levelup/ItemOptions")
+@onready var sndLevelup = get_node("PlayerUI/Control/Levelup/snd_levelup")
+@onready var itemOptions = preload("res://utility/ItemOption.tscn")
 
 
 
@@ -124,10 +125,17 @@ func exp_up(exp_gained):
 
 func level_up():
 	Level += 1
-	#levelPanel.visible = true
-	#var option = 0
-	#var optionsmax = 3
-	#get_tree().paused = true
+	levelPanel.visible = true
+	var options = 0
+	var optionsmax = 3
+	while options < optionsmax:
+		var optionChoice = itemOptions.instantiate()
+		upgradeOpts.add_child(optionChoice)
+		options += 1
+	get_tree().paused = true
+		
+func upgrade_character():
+	pass
 
 func update_EXP_required():
 	var exp_cap = 0
@@ -139,6 +147,9 @@ func update_EXP_required():
 		exp_cap = 255 * (Level-39) * 12
 		
 	return exp_cap 
+
+func pick_randomItem():
+	pass
 
 	
 	

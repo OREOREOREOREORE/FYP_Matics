@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1loqaj3rnifa"]
+[gd_scene load_steps=7 format=3 uid="uid://c1loqaj3rnifa"]
 
 [ext_resource type="PackedScene" uid="uid://drvhj82u3lxyw" path="res://player/Player.tscn" id="1_55nb4"]
 [ext_resource type="Script" path="res://world/world.gd" id="1_eb3vk"]
 [ext_resource type="Script" path="res://world/dead_HUD_container.gd" id="4_4t6fp"]
 [ext_resource type="FontFile" uid="uid://cmnxp73v72n38" path="res://font/MathTimeRegular-MwXw.ttf" id="5_3kv20"]
 [ext_resource type="PackedScene" uid="uid://dou6t3nt6ou1u" path="res://World/map.tscn" id="5_p8k73"]
+[ext_resource type="PackedScene" uid="uid://djlvhqcanrm5v" path="res://mob/mob.tscn" id="6_pisut"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_eb3vk")
@@ -64,6 +65,9 @@ theme_override_fonts/font = ExtResource("5_3kv20")
 theme_override_font_sizes/font_size = 100
 text = "QUIT
 "
+
+[node name="Mob" parent="." instance=ExtResource("6_pisut")]
+position = Vector2(298, -106)
 
 [connection signal="dead" from="Player" to="." method="_on_player_dead"]
 [connection signal="timeout" from="mob_spawn_timer" to="." method="_on_mob_spawn_timer_timeout"]

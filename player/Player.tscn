@@ -38,8 +38,6 @@ monitorable = true
 shape = SubResource("CapsuleShape2D_nci4i")
 debug_color = Color(0.984314, 0.0941176, 0.231373, 0.419608)
 
-[node name="PlayerUI" parent="." instance=ExtResource("4_ddaov")]
-
 [node name="Attack" type="Node2D" parent="."]
 
 [node name="eraser_Timer" type="Timer" parent="Attack"]
@@ -58,6 +56,8 @@ monitorable = false
 
 [node name="Coll_DetectionArea" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_424gg")
+
+[node name="PlayerUI" parent="." instance=ExtResource("4_ddaov")]
 
 [connection signal="timeout" from="Attack/eraser_Timer" to="." method="_on_eraser_timer_timeout"]
 [connection signal="timeout" from="Attack/eraser_Timer/eraser_attackTimer" to="." method="_on_eraser_attack_timer_timeout"]
