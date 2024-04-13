@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
 var SPD = 100
-var HP = 10
+var HP = 20
 var DEF = 10
 var ATK  = 10
-var EXP = 100
+var EXP = 13.3333
 
 #@export var mob_scene: PackedScene
 @onready var player = get_node("../Player")

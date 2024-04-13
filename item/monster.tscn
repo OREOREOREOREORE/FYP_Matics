@@ -8,6 +8,7 @@ size = Vector2(27, 72)
 
 [node name="monster" type="Area2D"]
 light_mask = 0
+scale = Vector2(0.5, 0.5)
 collision_layer = 256
 collision_mask = 18
 script = ExtResource("1_tmkdb")

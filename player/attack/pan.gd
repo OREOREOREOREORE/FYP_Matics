@@ -1,25 +1,36 @@
 extends Area2D
-var ATK = 100
+var level = 0
+var ATK
+var deg
+var att_speed
+# UpgradeDb.UPGRADE["pan1"].upgrade[0].ATK
+# UpgradeDb.UPGRADE["pan1"].ATK
+
+var animation: Animation
+var track_id 
+var key_id: int 
+
 var mouse_position
 @onready var player = get_node("../")
 
 func _ready():
 	
-	mouse_position= global_position.direction_to(get_global_mouse_position()).angle() + deg_to_rad(270)
+	ATK = UpgradeDb.UPGRADE["pan"].upgrade[level].ATK
+	deg = UpgradeDb.UPGRADE["pan"].upgrade[level].deg
+	att_speed = UpgradeDb.UPGRADE["pan"].upgrade[level].speed
+	
+	rotation= global_position.direction_to(get_global_mouse_position()).angle() + deg_to_rad(270)
+	animation = $AnimationPlayer.get_animation("att")
+	track_id = animation.find_track(".:rotation", Animation.TYPE_VALUE)
+	
+	animation.length = att_speed
+	animation.track_insert_key(track_id, 0, rotation -  deg_to_rad(deg/2))
+	animation.track_insert_key(track_id, animation.length, rotation + deg_to_rad(deg/2))
 
 func _process(delta):
-	rotation = mouse_position
-	var animation: Animation = $AnimationPlayer.get_animation("att")
-	var track_id = animation.find_track(".:rotation", Animation.TYPE_VALUE)
-	var key_id: int = animation.track_find_key(track_id, 0.0)
-	animation.track_set_key_value(track_id, key_id, rotation - + deg_to_rad(45))
-	key_id = animation.track_find_key(track_id, 0.5)
-	animation.track_set_key_value(track_id, key_id, rotation + deg_to_rad(45))
-	animation.length = 0.3
 	
-	print(key_id)
-	
-	
+	#animation.track_set_key_time(track_id, key_id, 1)
+	#animation.track_set_key_value(track_id, key_id, rotation + deg_to_rad(45))
 	$AnimationPlayer.play("att")
 
 

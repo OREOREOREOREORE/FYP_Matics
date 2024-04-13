@@ -1,64 +1,186 @@
 extends Node
-class_name DB
 
 
 const UPGRADE = {
 	
-	"eraser1": {
+	"eraser": {
 		"displayname": "Eraser",
-		"details": "thrown at a random enemy",
-		"level": "Level: 1",
-		"prerequisite": [],
-		"type": "weapon"
-	},
-	"eraser2": {
-		"displayname": "Eraser",
-		"details": "",
-		"level": "Level: 2",
-		"prerequisite": ["eraser1"],
-		"type": "weapon"
-	},
-	"speed1":{
-		"displayname": "Boot",
-		"details": "",
-		"level": "Level: 1",
-		"prerequisite": [],
-		"type": "upgrade"
+		"type": "weapon",
+		"upgrade":
+			[
+				{
+					"level": "Level: 1",
+					"details": "thrown at a random enemy",
+					"ATK": 20,
+					"speed": 0.5
+				},
+				
+				{
+					"level": "Level: 2",
+					"details": "thrown at a random enemy",
+					"ATK": 20,
+					"speed": 0.5
+				},
+				
+				{
+					"level": "Level: 3",
+					"details": "thrown at a random enemy",
+					"ATK": 20,
+					"speed": 0.5
+				}
+				
+			]
 	},
 	
-	"speed2":{
-		"displayname": "Boot",
-		"details": "",
-		"level": "Level: 2",
-		"prerequisite": ["speed1"],
-		"type": "upgrade"
+	"pan": {
+		"displayname": "Pan",
+		"type": "weapon",
+		"upgrade":
+			[
+				{
+					"ATK": 20,
+					"deg": 30,
+					"speed": 0.5
+				},
+				
+				{
+					"level": "Level: 1",
+					"details": "test",
+					"ATK": 30,
+					"deg": 45,
+					"speed": 0.3
+				},
+				
+				{
+					"level": "Level: 2",
+					"details": "test",
+					"ATK": 30,
+					"deg": 60,
+					"speed": 0.2
+				},
+				
+				{
+					"level": "Level: 3",
+					"details": "test",
+					"ATK": 40,
+					"deg": 90,
+					"speed": 0.1
+				}
+			]
 	},
 	
-	"hp1":{
+	"speed":{
+		"displayname": "Boot",
+		"type": "upgrade",
+		"upgrade":[
+			{
+				"value": 110
+			},
+			
+			{
+				"level": "Level: 1",
+				"details": "",
+				"value": 120
+			},
+			
+			{
+				"level": "Level: 2",
+				"details": "",
+				"value": 130
+			},
+			
+			{
+				"level": "Level: 3",
+				"details": "",
+				"value": 130
+			}
+		]
+	},
+	
+	"hp":{
 		"displayname": "HP",
-		"details": "",
-		"level": "Level: 2",
-		"prerequisite": [],
-		"type": "upgrade"
+		"type": "upgrade",
+		"upgrade":
+			[
+				{
+					"value":100
+				},
+				
+				{
+				"level": "Level: 1",
+				"details": "",
+				"value": 110
+				},
+				
+				{
+					"level": "Level: 2",
+					"details": "",
+					"value": 120
+				},
+				
+				{
+					"level": "Level: 3",
+					"details": "",
+					"value": 130
+				},
+			]
 	},
 	
-	"defend1":{
+	"defend":{
 		"displayname": "CANTHURTME",
-		"details": "",
-		"level": "Level: 2",
-		"prerequisite": [],
-		"type": "upgrade"
+		"type": "upgrade",
+		"upgrade":
+			[
+				{
+					"value":10
+				},
+				
+				{
+				"level": "Level: 1",
+				"details": "",
+				"value": 15
+				},
+				
+				{
+					"level": "Level: 2",
+					"details": "",
+					"value": 20
+				},
+				
+				{
+					"level": "Level: 3",
+					"details": "",
+					"value": 25
+				},
+			]
 	},
 	
-	"damage1":{
+	"damage":{
 		"displayname": "I AM STRONG",
-		"details": "",
-		"level": "Level: 1",
-		"prerequisite": [],
-		"type": "upgrade"
+		"type": "upgrade",
+		"upgrade":
+			[
+				{
+				"level": "Level: 1",
+				"details": "",
+				"value": 15
+				},
+				
+				{
+					"level": "Level: 2",
+					"details": "",
+					"value": 20
+				},
+				
+				{
+					"level": "Level: 3",
+					"details": "",
+					"value": 25
+				},
+			]
 	},
 	
-	"size1": {
+	"size": {
 		"displayname": "DreamBIG",
 		"details": "",
 		"level": "Level: 1",
@@ -66,20 +188,33 @@ const UPGRADE = {
 		"type": "upgrade"
 	},
 	
-	"atk_speed1": {
-		"displayname": "JUSTDOIT!",
-		"details": "",
-		"level": "Level: 1",
-		"prerequisite": [],
-		"type": "upgrade"
-	},
-	
-	"food1":{
+	"food":{
 		"displayname": "HELP!",
-		"details": "",
-		"level": "Level: 1",
-		"prerequisite": [],
-		"type": "item"
+		"type": "item",
+		"upgrade":
+			[
+				{
+				"value": 10
+				},
+				
+				{
+				"level": "Level: 1",
+				"details": "",
+				"value": 15
+				},
+				
+				{
+					"level": "Level: 2",
+					"details": "",
+					"value": 20
+				},
+				
+				{
+					"level": "Level: 3",
+					"details": "",
+					"value": 25
+				},
+			]
 	}
 	
 }

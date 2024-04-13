@@ -8,9 +8,11 @@ var hp_monster_x
 var hp_monster_y
 var vpr
 var hp_monster_num = 0
+var box_num = 0
 
 func _ready():
 	$dead_HUD.set_visible(false) # Make sure the HUD is not visible at the game start
+	
 	
 func _physics_process(delta):
 	if($Player.HP<80 && hp_monster_num<1):
@@ -29,6 +31,12 @@ func _physics_process(delta):
 		add_child(monster)
 		hp_monster_num+=1
 		print(hp_monster_num)
+	
+	if box_num == 0:	
+		var box = preload("res://item/pen_box.tscn").instantiate()
+		box.position = Vector2($Player.global_position.x + 50,  $Player.global_position.y + 50)
+		add_child(box)
+		box_num+=1
 		
 
 func _on_mob_spawn_timer_timeout():
