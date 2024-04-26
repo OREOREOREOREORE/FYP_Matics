@@ -1,9 +1,12 @@
 extends CharacterBody2D
 
 @export var SPD = 110
+@export var spd_level = 0
 @export var HP = 100
+@export var hp_level = 0
 @export var DEF = 0
-@export var ATK = 40
+@export var def_level = 0
+@export var ATK = 0
 
 @export var Level = 1
 @export var EXP = 0
@@ -32,9 +35,9 @@ signal dead
 @onready var eraser_attackTimer = get_node("%eraser_attackTimer")
 
 #Attack
-
 var eraser_thrown = preload("res://player/attack/eraser_thrown.tscn")
-var pan = preload("res://player/attack/pan.tscn")
+var pan_o = preload("res://player/attack/pan.tscn")
+var additional_attack = 0
 
 #Eraser
 var eraser_ammo = 0
@@ -53,7 +56,7 @@ func _physics_process(delta):
 	movement()
 	player_ui.update_healthbar()
 	if Input.is_action_just_pressed("Melee") && melee_num == 0:
-		var pan_att = pan.instantiate()
+		var pan_att = pan_o.instantiate()
 		add_child(pan_att)
 		melee_num += 1
 	
@@ -86,7 +89,7 @@ func take_damage(ATK_0: int):
 		
 func _on_eraser_timer_timeout():
 	if (eraser_ammo < eraser_limitammo):
-		eraser_ammo += eraser_baseammo + 2 # additionl
+		eraser_ammo += eraser_baseammo + additional_attack # additionl
 		eraser_attackTimer.start()
 
 func _on_eraser_attack_timer_timeout():
@@ -130,7 +133,9 @@ func exp_up(exp_gained):
 	player_ui.UpdateExperiencebar(leveled)
 	
 
-func level_up():
+func level_up(): 
+	var o_level
+	var item_nam
 	Level += 1
 	levelPanel.visible = true
 	var options = 0
@@ -138,6 +143,7 @@ func level_up():
 	while options < optionsmax:
 		var optionChoice = itemOptions.instantiate()
 		optionChoice.item = pickRandom_item()
+		
 		print(optionChoice.item)
 		upgradeOpts.add_child(optionChoice)
 		options += 1
@@ -149,7 +155,23 @@ func upgrade_character(upgrade):
 		"eraser":
 			eraser_level +=1
 			if eraser_level == 3:
-				level_max.append(upgrade)
+				level_max.append(upgrade)	
+		"hp":
+			hp_level += 1
+			HP = UpgradeDb.UPGRADE["hp"].upgrade[hp_level].value
+			
+		"defend":
+			def_level += 1
+			DEF = UpgradeDb.UPGRADE["defend"].upgrade[def_level].value
+		"speed":
+			spd_level += 1
+			SPD = UpgradeDb.UPGRADE["speed"].upgrade[spd_level].value
+			print(SPD)
+		"food":
+			player.HP += 20
+			HP = clamp(HP,0,player.HP)
+		"nuts":
+			additional_attack +=  UpgradeDb.UPGRADE["nuts"].upgrade[additional_attack].additional_attack
 	attack()
 	var option_children = upgradeOpts.get_children()
 	for i in option_children:
@@ -159,6 +181,8 @@ func upgrade_character(upgrade):
 	levelPanel.visible = false
 	get_tree().paused = false
 	exp_up(0)
+	
+	
 	
 func update_EXP_required():
 	var exp_cap = 0

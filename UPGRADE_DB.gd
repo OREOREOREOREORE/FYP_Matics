@@ -191,6 +191,31 @@ const UPGRADE = {
 		"displayname": "DreamBIG",
 	},
 	
+	"nuts":{
+		"can_level_up": true,
+		"displayname": "nuts",
+		"upgrade":
+			[
+				{
+				"level": "Level: 1",
+				"details": "+1",
+				"additional_attack": 1
+				},
+				
+				{
+					"level": "Level: 2",
+					"details": "+2",
+					"additional_attack": 2
+				},
+				
+				{
+					"level": "Level: 3",
+					"details": "+3",
+					"additional_attack": 3
+				},
+			]
+	},
+	
 	"food":{
 		"can_level_up": false,
 		"displayname": "HELP!",
@@ -198,7 +223,8 @@ const UPGRADE = {
 		"upgrade":
 			[
 				{
-				"value": 10
+				"value": 10,
+				"details": "+3",
 				}
 			]
 	}

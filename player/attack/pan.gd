@@ -1,5 +1,5 @@
 extends Area2D
-var level = 0
+var level = 3
 var ATK
 var deg
 var att_speed
