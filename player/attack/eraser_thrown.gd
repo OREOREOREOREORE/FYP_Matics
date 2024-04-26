@@ -5,6 +5,7 @@ var SPD = 150
 var ATK = 100
 var KB = 100
 var ATK_Size = 1.0
+@export var level = 0
 
 
 @onready var player = get_node("../")
@@ -14,6 +15,9 @@ var target = Vector2.ZERO
 var angle = Vector2.ZERO
 
 func _ready():
+	ATK = UpgradeDb.UPGRADE["eraser"].upgrade[level].ATK
+	#deg = UpgradeDb.UPGRADE["eraser"].upgrade[level].deg
+	#att_speed = UpgradeDb.UPGRADE["eraser"].upgrade[level].speed
 	angle = global_position.direction_to(target)
 	rotation = angle.angle()
 	var tween = create_tween()

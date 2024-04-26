@@ -7,20 +7,24 @@ extends ColorRect
 @onready var button: TextureButton = $Button
 
 var item = null
-@onready var player = get_node("../")
-
+@onready var player = get_tree().get_first_node_in_group("Player")
 signal selected_upgrade(upgrade)
 
 
 func _ready():
-	#connect("selected_upgrade",Callable(player,"upgrade_character"))
-	# 	assert(selected_upgrade.connect(player.upgrade_character) == OK)
+	print(player)
+	assert(selected_upgrade.connect(player.upgrade_character) == OK)
+	assert(button.pressed.connect(click) == OK)
+	if item == null:
+		item = "food"
+	#ATK = UpgradeDb.UPGRADE["pan"].upgrade[level].ATK
 	#assert(button.pressed.connect(click) == OK)
-	itemName.text = UpgradeDb.UPGRADE["pan"]["displayname"] #.["displayname"]
-	#itemDescription.text = UpgradeDb.UPGRADE[item]["details"]
-	#itemLevel.text = UpgradeDb.UPGRADE[item]["level"]
+	itemName.text = UpgradeDb.UPGRADE[item]["displayname"] #.["displayname"]
+	#itemDescription.text = UpgradeDb.UPGRADE[item].upgrade[1]["details"]
+	#itemLevel.text = UpgradeDb.UPGRADE[item].upgrade[1]["level"]
 	#itemIcon.texture = load(UpgradeDb.UPGRADE[item]["icon"])
 
 
 func click():
-	selected_upgrade.emit(item)
+	print("clicked: " + item)
+	emit_signal("selected_upgrade", item)

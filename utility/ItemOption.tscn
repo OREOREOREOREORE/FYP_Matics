@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://dbunwsilhul38" path="res://font/ThaleahFat.ttf" id="3_x21ca"]
 
 [node name="ItemOption" type="ColorRect"]
+process_mode = 3
 custom_minimum_size = Vector2(50, 180)
 anchors_preset = -1
 anchor_right = 0.173
@@ -63,9 +64,9 @@ theme_override_fonts/font = ExtResource("3_x21ca")
 text = "LV: 1"
 
 [node name="Button" type="TextureButton" parent="."]
+process_mode = 3
 layout_mode = 0
-offset_top = 1.0
-offset_right = 197.0
+offset_right = 200.0
 offset_bottom = 285.0
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

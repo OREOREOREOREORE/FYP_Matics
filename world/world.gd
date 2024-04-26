@@ -12,7 +12,7 @@ var box_num = 0
 
 func _ready():
 	$dead_HUD.set_visible(false) # Make sure the HUD is not visible at the game start
-	
+	get_tree().paused = false
 	
 func _physics_process(delta):
 	if($Player.HP<80 && hp_monster_num<1):
@@ -61,3 +61,9 @@ func _on_mob_spawn_timer_timeout():
 
 func _on_player_dead():
 	$dead_HUD.set_visible(true)
+
+
+func _on_timer_timeout():
+	get_tree().paused = true
+	$dead_HUD.set_visible(true)
+	$dead_HUD/dead_HUD_container/failed_label.text = "Win!"

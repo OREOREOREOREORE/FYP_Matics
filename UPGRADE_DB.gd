@@ -4,6 +4,7 @@ extends Node
 const UPGRADE = {
 	
 	"eraser": {
+		"can_level_up": true,
 		"displayname": "Eraser",
 		"type": "weapon",
 		"upgrade":
@@ -11,28 +12,29 @@ const UPGRADE = {
 				{
 					"level": "Level: 1",
 					"details": "thrown at a random enemy",
-					"ATK": 20,
+					"ATK": 5,
 					"speed": 0.5
 				},
 				
 				{
 					"level": "Level: 2",
 					"details": "thrown at a random enemy",
-					"ATK": 20,
+					"ATK": 5,
 					"speed": 0.5
 				},
 				
 				{
 					"level": "Level: 3",
 					"details": "thrown at a random enemy",
-					"ATK": 20,
-					"speed": 0.5
+					"ATK": 8,
+					"speed": 0.75
 				}
 				
 			]
 	},
 	
 	"pan": {
+		"can_level_up": true,
 		"displayname": "Pan",
 		"type": "weapon",
 		"upgrade":
@@ -70,6 +72,7 @@ const UPGRADE = {
 	},
 	
 	"speed":{
+		"can_level_up": true,
 		"displayname": "Boot",
 		"type": "upgrade",
 		"upgrade":[
@@ -98,6 +101,7 @@ const UPGRADE = {
 	},
 	
 	"hp":{
+		"can_level_up": true,
 		"displayname": "HP",
 		"type": "upgrade",
 		"upgrade":
@@ -127,6 +131,7 @@ const UPGRADE = {
 	},
 	
 	"defend":{
+		"can_level_up": true,
 		"displayname": "CANTHURTME",
 		"type": "upgrade",
 		"upgrade":
@@ -156,6 +161,7 @@ const UPGRADE = {
 	},
 	
 	"damage":{
+		"can_level_up": true,
 		"displayname": "I AM STRONG",
 		"type": "upgrade",
 		"upgrade":
@@ -181,39 +187,19 @@ const UPGRADE = {
 	},
 	
 	"size": {
+		"can_level_up": true,
 		"displayname": "DreamBIG",
-		"details": "",
-		"level": "Level: 1",
-		"prerequisite": [],
-		"type": "upgrade"
 	},
 	
 	"food":{
+		"can_level_up": false,
 		"displayname": "HELP!",
 		"type": "item",
 		"upgrade":
 			[
 				{
 				"value": 10
-				},
-				
-				{
-				"level": "Level: 1",
-				"details": "",
-				"value": 15
-				},
-				
-				{
-					"level": "Level: 2",
-					"details": "",
-					"value": 20
-				},
-				
-				{
-					"level": "Level: 3",
-					"details": "",
-					"value": 25
-				},
+				}
 			]
 	}
 	

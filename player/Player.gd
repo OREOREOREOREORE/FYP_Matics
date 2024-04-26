@@ -20,6 +20,10 @@ extends CharacterBody2D
 
 var melee_num = 0
 var enemies = []
+var collected_upgrades = []
+var upgrade_options = []
+var level_max = []
+
 
 signal dead
 
@@ -28,6 +32,7 @@ signal dead
 @onready var eraser_attackTimer = get_node("%eraser_attackTimer")
 
 #Attack
+
 var eraser_thrown = preload("res://player/attack/eraser_thrown.tscn")
 var pan = preload("res://player/attack/pan.tscn")
 
@@ -36,7 +41,9 @@ var eraser_ammo = 0
 var eraser_baseammo = 1
 var eraser_attackspeed = 1.5
 var eraser_limitammo = 3
-var eraser_level = 1
+var eraser_level = EraserThrown.level
+
+#Pan
 
 func _ready():
 	attack()
@@ -130,13 +137,29 @@ func level_up():
 	var optionsmax = 3
 	while options < optionsmax:
 		var optionChoice = itemOptions.instantiate()
+		optionChoice.item = pickRandom_item()
+		print(optionChoice.item)
 		upgradeOpts.add_child(optionChoice)
 		options += 1
 	get_tree().paused = true
 		
-func upgrade_character():
-	pass
-
+func upgrade_character(upgrade):
+	print("UPGRADED")
+	match upgrade:
+		"eraser":
+			eraser_level +=1
+			if eraser_level == 3:
+				level_max.append(upgrade)
+	attack()
+	var option_children = upgradeOpts.get_children()
+	for i in option_children:
+		i.queue_free()
+	upgrade_options.clear()
+	collected_upgrades.append(upgrade)
+	levelPanel.visible = false
+	get_tree().paused = false
+	exp_up(0)
+	
 func update_EXP_required():
 	var exp_cap = 0
 	if Level < 10:
@@ -148,12 +171,21 @@ func update_EXP_required():
 		
 	return exp_cap 
 
-func pick_randomItem():
-	pass
+func pickRandom_item():
+	var levelUp_list = []
+	for i in UpgradeDb.UPGRADE:
+		var item = UpgradeDb.UPGRADE[i]
+		if(item.can_level_up and i not in level_max):
+			levelUp_list.append(i)
+		
+	if levelUp_list.size() > 0:
+		var random_item = levelUp_list.pick_random()
+		upgrade_options.append(random_item) 
+		print(random_item)
+		return random_item
+	else:
+		return null;
 
-	
-	
-	
 
 
 

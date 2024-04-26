@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://8lnpeupach1o"]
+[gd_scene load_steps=8 format=3 uid="uid://8lnpeupach1o"]
 
-[ext_resource type="Texture2D" uid="uid://8w1vnuecaek8" path="res://Image/UI/UI BARS/empty_bar.png" id="1_4a5vh"]
 [ext_resource type="Script" path="res://utility/player_ui.gd" id="1_5iaov"]
-[ext_resource type="Texture2D" uid="uid://p8d8lia3hkv" path="res://Image/UI/UI BARS/exp_bar.png" id="3_1rhxu"]
-[ext_resource type="Texture2D" uid="uid://ds8xvgvtod510" path="res://Image/UI/UI BARS/health_bar.png" id="3_pyc2v"]
+[ext_resource type="Texture2D" uid="uid://ca8h132ixwh3x" path="res://health.png" id="2_iuqng"]
+[ext_resource type="Texture2D" uid="uid://dkmjqdyxe6fh6" path="res://healthBK.png" id="3_cyxxh"]
+[ext_resource type="Texture2D" uid="uid://k3j8jsyjus8g" path="res://xpBk.png" id="4_raxec"]
 [ext_resource type="FontFile" uid="uid://dbunwsilhul38" path="res://font/ThaleahFat.ttf" id="5_7btdb"]
+[ext_resource type="Texture2D" uid="uid://55t0ldhlixci" path="res://xp.png" id="5_cn6h5"]
 [ext_resource type="AudioStream" uid="uid://cip7nq26y5t6x" path="res://music/new-level-142995.mp3" id="6_47e5x"]
 
 [node name="PlayerUI" type="CanvasLayer"]
@@ -15,13 +16,21 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 layout_mode = 2
-offset_right = 103.0
-offset_bottom = 32.0
+anchor_left = 0.052
+anchor_right = 0.5
+anchor_bottom = 0.052
+offset_left = -49.904
+offset_right = -49.0
+offset_bottom = 0.303999
 
 [node name="Level" type="Label" parent="Control/HBoxContainer"]
 layout_mode = 2
@@ -34,26 +43,27 @@ theme_override_constants/separation = 0
 layout_mode = 2
 size_flags_horizontal = 4
 value = 100.0
-texture_under = ExtResource("1_4a5vh")
-texture_progress = ExtResource("3_pyc2v")
+texture_under = ExtResource("2_iuqng")
+texture_progress = ExtResource("3_cyxxh")
 
 [node name="ExperienceBar" type="TextureProgressBar" parent="Control/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 value = 100.0
-texture_under = ExtResource("1_4a5vh")
-texture_progress = ExtResource("3_1rhxu")
+texture_under = ExtResource("4_raxec")
+texture_progress = ExtResource("5_cn6h5")
 
 [node name="EXP_percentage" type="Label" parent="Control/HBoxContainer/VBoxContainer/ExperienceBar"]
 layout_mode = 2
-offset_left = 35.0
+offset_left = 13.0
 offset_top = -3.0
-offset_right = 57.0
+offset_right = 35.0
 offset_bottom = 20.0
 
 [node name="Levelup" type="Panel" parent="Control"]
 process_mode = 2
+visible = false
 layout_mode = 2
 anchor_left = 0.111
 anchor_top = 0.154
@@ -78,10 +88,10 @@ vertical_alignment = 1
 
 [node name="ItemOptions" type="HBoxContainer" parent="Control/Levelup"]
 layout_mode = 0
-offset_left = 100.0
-offset_top = 67.0
-offset_right = 1410.0
-offset_bottom = 317.0
+offset_left = 73.0
+offset_top = 83.0
+offset_right = 267.0
+offset_bottom = 333.0
 
 [node name="snd_levelup" type="AudioStreamPlayer2D" parent="Control/Levelup"]
 position = Vector2(-78, -65)
