@@ -11,6 +11,7 @@ var hp_monster_num = 0
 var box_num = 0
 
 func _ready():
+	$AudioStreamPlayer.play(0.0)
 	$dead_HUD.set_visible(false) # Make sure the HUD is not visible at the game start
 	get_tree().paused = false
 	
@@ -67,3 +68,7 @@ func _on_timer_timeout():
 	get_tree().paused = true
 	$dead_HUD.set_visible(true)
 	$dead_HUD/dead_HUD_container/failed_label.text = "Win!"
+
+
+func _on_audio_stream_player_finished():
+	$AudioStreamPlayer.play(0.0)
