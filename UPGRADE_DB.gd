@@ -42,7 +42,7 @@ const UPGRADE = {
 				{
 					"ATK": 20,
 					"deg": 30,
-					"speed": 0.5
+					"speed": 1
 				},
 				
 				{
@@ -223,8 +223,7 @@ const UPGRADE = {
 		"upgrade":
 			[
 				{
-				"value": 10,
-				"details": "+3",
+				"value": 10
 				}
 			]
 	}

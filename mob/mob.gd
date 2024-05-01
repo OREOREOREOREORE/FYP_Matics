@@ -4,7 +4,7 @@ var SPD = 100
 var HP = 20
 var DEF = 10
 var ATK  = 10
-var EXP = 12
+var EXP = 100 #12
 
 #@export var mob_scene: PackedScene
 @onready var player = get_node("../Player")

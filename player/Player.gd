@@ -159,7 +159,7 @@ func upgrade_character(upgrade):
 		"hp":
 			hp_level += 1
 			HP = UpgradeDb.UPGRADE["hp"].upgrade[hp_level].value
-			
+			player_ui.update_healthbar()
 		"defend":
 			def_level += 1
 			DEF = UpgradeDb.UPGRADE["defend"].upgrade[def_level].value

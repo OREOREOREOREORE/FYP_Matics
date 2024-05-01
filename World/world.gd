@@ -10,28 +10,30 @@ var vpr
 var hp_monster_num = 0
 var box_num = 0
 
+
+
 func _ready():
-	$AudioStreamPlayer.play(0.0)
 	$dead_HUD.set_visible(false) # Make sure the HUD is not visible at the game start
 	get_tree().paused = false
 	
 func _physics_process(delta):
+	$CanvasLayer/tLabel.text = str("%d:%02d" % [floor($Timer.time_left / 60), int($Timer.time_left) % 60])
 	if($Player.HP<80 && hp_monster_num<1):
 		var monster = preload("res://item/monster.tscn").instantiate()
 		
 		if(randf( ) >= 0.5):
-			hp_monster_x = $Player.global_position.x + vpr.x/2
+			hp_monster_x = $Player.global_position.x + vpr.x/3
 		else:
-			hp_monster_x = $Player.global_position.x - vpr.x/2
+			hp_monster_x = $Player.global_position.x - vpr.x/3
 		if(randf( ) >= 0.5):
-			hp_monster_y = $Player.global_position.y + vpr.y/2
+			hp_monster_y = $Player.global_position.y + vpr.y/3
 		else:
-			hp_monster_y = $Player.global_position.y - vpr.y/2
+			hp_monster_y = $Player.global_position.y - vpr.y/3
 			
 		monster.position = Vector2(hp_monster_x, hp_monster_y)
 		add_child(monster)
 		hp_monster_num+=1
-		print(hp_monster_num)
+		print("Monsternum" + str(hp_monster_num))
 	
 	if box_num == 0:	
 		var box = preload("res://item/pen_box.tscn").instantiate()
@@ -69,6 +71,3 @@ func _on_timer_timeout():
 	$dead_HUD.set_visible(true)
 	$dead_HUD/dead_HUD_container/failed_label.text = "Win!"
 
-
-func _on_audio_stream_player_finished():
-	$AudioStreamPlayer.play(0.0)

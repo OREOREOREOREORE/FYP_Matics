@@ -10,6 +10,6 @@ script = ExtResource("1_dashc")
 motion_mirroring = Vector2(1500, 2.08165e-12)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
-position = Vector2(752, 523)
+position = Vector2(765, 531)
 scale = Vector2(2.37675, 1.65601)
 texture = ExtResource("2_gov5w")

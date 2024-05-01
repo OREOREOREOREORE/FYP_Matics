@@ -6,68 +6,77 @@
 
 [node name="ItemOption" type="ColorRect"]
 process_mode = 3
-custom_minimum_size = Vector2(50, 180)
+custom_minimum_size = Vector2(180, 50)
 anchors_preset = -1
-anchor_right = 0.173
-anchor_bottom = 0.44
-offset_right = 0.704008
-offset_bottom = -0.119998
+anchor_right = 0.216
+anchor_bottom = 0.397
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 0.167994
+offset_bottom = -0.25601
 color = Color(0.180392, 0.180392, 0.180392, 0.666667)
 script = ExtResource("1_51tis")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 0
-offset_left = 70.0
-offset_top = 14.0
-offset_right = 130.0
-offset_bottom = 74.0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 75.0
+offset_bottom = 65.0
 color = Color(0, 0, 0, 1)
 
 [node name="ItemImg" type="TextureRect" parent="ColorRect"]
 layout_mode = 0
-offset_left = 3.0
-offset_top = 10.0
-offset_right = 99.0
-offset_bottom = 106.0
+offset_left = -8.0
+offset_top = 5.0
+offset_right = 145.0
+offset_bottom = 125.0
 rotation = -6.28319
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_il8h0")
+expand_mode = 1
 
 [node name="item_name" type="Label" parent="."]
 layout_mode = 0
-offset_left = 74.0
-offset_top = 73.0
-offset_right = 127.0
-offset_bottom = 100.0
+offset_left = 88.0
+offset_top = 20.0
+offset_right = 144.0
+offset_bottom = 37.0
 theme_override_fonts/font = ExtResource("3_x21ca")
+theme_override_font_sizes/font_size = 16
 text = "Name"
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
 [node name="item_description" type="Label" parent="."]
 layout_mode = 0
-offset_left = 26.0
-offset_top = 110.0
-offset_right = 167.0
-offset_bottom = 248.0
+offset_left = 31.0
+offset_top = 77.0
+offset_right = 209.0
+offset_bottom = 220.0
 theme_override_fonts/font = ExtResource("3_x21ca")
+theme_override_font_sizes/font_size = 12
 text = "Description"
 
 [node name="item_level" type="Label" parent="."]
 layout_mode = 0
-offset_left = 84.0
-offset_top = 63.0
-offset_right = 114.0
-offset_bottom = 78.0
+offset_left = 23.0
+offset_top = 56.0
+offset_right = 53.0
+offset_bottom = 71.0
 theme_override_fonts/font = ExtResource("3_x21ca")
 text = "LV: 1"
 
 [node name="Button" type="TextureButton" parent="."]
 process_mode = 3
 layout_mode = 0
-offset_right = 200.0
-offset_bottom = 285.0
+offset_left = 252.0
+offset_top = -1.0
+offset_right = 506.0
+offset_bottom = 252.0
+rotation = 1.57079
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

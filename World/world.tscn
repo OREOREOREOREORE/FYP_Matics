@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1loqaj3rnifa"]
+[gd_scene load_steps=9 format=3 uid="uid://1advouodn6rx"]
 
 [ext_resource type="PackedScene" uid="uid://drvhj82u3lxyw" path="res://player/Player.tscn" id="1_55nb4"]
 [ext_resource type="Script" path="res://world/world.gd" id="1_eb3vk"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dou6t3nt6ou1u" path="res://World/map.tscn" id="5_p8k73"]
 [ext_resource type="PackedScene" uid="uid://djlvhqcanrm5v" path="res://mob/mob.tscn" id="6_pisut"]
 [ext_resource type="AudioStream" uid="uid://c2g71ecu38fha" path="res://music/Karmic_Lament_BG.mp3" id="7_pj8b7"]
+[ext_resource type="FontFile" uid="uid://dbunwsilhul38" path="res://font/ThaleahFat.ttf" id="8_no6wf"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_eb3vk")
@@ -78,11 +79,20 @@ autostart = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_pj8b7")
 autoplay = true
-bus = &"Game_BGM"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="tLabel" type="Label" parent="CanvasLayer"]
+offset_left = 528.0
+offset_top = 8.0
+offset_right = 611.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("8_no6wf")
+text = "
+"
 
 [connection signal="dead" from="Player" to="." method="_on_player_dead"]
 [connection signal="timeout" from="mob_spawn_timer" to="." method="_on_mob_spawn_timer_timeout"]
 [connection signal="pressed" from="dead_HUD/dead_HUD_container/retry" to="dead_HUD/dead_HUD_container" method="_on_retry_pressed"]
 [connection signal="pressed" from="dead_HUD/dead_HUD_container/quit" to="dead_HUD/dead_HUD_container" method="_on_quit_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
