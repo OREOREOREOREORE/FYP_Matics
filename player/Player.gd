@@ -138,6 +138,7 @@ func exp_up(exp_gained):
 func level_up(): 
 	var o_level
 	var item_nam
+	sndLevelup.play()
 	Level += 1
 	levelPanel.visible = true
 	var options = 0
@@ -180,12 +181,6 @@ func upgrade_character(upgrade):
 		"pan":
 			pan_level +=1
 			if pan_level == 3:
-				level_max.append(upgrade)	
-		"hp":
-			hp_level += 1
-			HP = UpgradeDb.UPGRADE["hp"].upgrade[hp_level].value
-			player_ui.update_healthbar()
-			if hp_level == 3:
 				level_max.append(upgrade)	
 		"defend":
 			def_level += 1

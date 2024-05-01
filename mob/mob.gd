@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 var SPD = 100
 var HP = 20
-var DEF = 10
-var ATK  = 10
-var EXP = 100 #12
+var DEF = 5
+var ATK  = 15
+var EXP = 50 #12
 
 #@export var mob_scene: PackedScene
 @onready var player = get_node("../Player")
@@ -29,6 +29,7 @@ func take_damage(ATK_O: int):
 	#audio.play()
 	HP = HP - (ATK_O - DEF)	
 	if HP <= 0:	
+		$mob_img.frame = 1
 		player.exp_up(EXP)
 		word.mob_number += 1
 		print(player.EXP)

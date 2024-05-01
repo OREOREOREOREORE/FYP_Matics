@@ -100,38 +100,6 @@ const UPGRADE = {
 		]
 	},
 	
-	"hp":{
-		"icon": Weapon_Path + "red_bull.png",
-		"can_level_up": true,
-		"displayname": "HP",
-		"level": 1,
-		"details": "Increase HP by 10",
-		"type": "upgrade",
-		"upgrade":
-			[
-				{
-					"value":100
-				},
-				
-				{
-				"level": "Level: 1",
-				"details": "",
-				"value": 110
-				},
-				
-				{
-					"level": "Level: 2",
-					"details": "",
-					"value": 120
-				},
-				
-				{
-					"level": "Level: 3",
-					"details": "",
-					"value": 130
-				},
-			]
-	},
 	
 	"defend":{
 		"icon": Weapon_Path + "helmet.png",
@@ -143,17 +111,17 @@ const UPGRADE = {
 		"upgrade":
 			[
 				{
-					"value":10
+					"value":5
 				},
 				
 				{
 				"details": "",
-				"value": 15
+				"value": 8
 				},
 				
 				{
 					"details": "",
-					"value": 20
+					"value": 10
 				},
 				
 				{
