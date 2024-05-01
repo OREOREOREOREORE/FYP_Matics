@@ -26,6 +26,7 @@ var enemies = []
 var collected_upgrades = []
 var upgrade_options = []
 var level_max = []
+var pan_level = 0
 
 
 signal dead
@@ -57,6 +58,7 @@ func _physics_process(delta):
 	player_ui.update_healthbar()
 	if Input.is_action_just_pressed("Melee") && melee_num == 0:
 		var pan_att = pan_o.instantiate()
+		pan_att.level = pan_level
 		add_child(pan_att)
 		melee_num += 1
 	
@@ -156,6 +158,10 @@ func upgrade_character(upgrade):
 			eraser_level +=1
 			if eraser_level == 3:
 				level_max.append(upgrade)	
+		"pan":
+			pan_level +=1
+			if pan_level == 3:
+				level_max.append(upgrade)	
 		"hp":
 			hp_level += 1
 			HP = UpgradeDb.UPGRADE["hp"].upgrade[hp_level].value
@@ -171,7 +177,7 @@ func upgrade_character(upgrade):
 			player.HP += 20
 			HP = clamp(HP,0,player.HP)
 		"nuts":
-			additional_attack +=  UpgradeDb.UPGRADE["nuts"].upgrade[additional_attack].additional_attack
+			additional_attack =  UpgradeDb.UPGRADE["nuts"].upgrade[additional_attack].additional_attack
 	attack()
 	var option_children = upgradeOpts.get_children()
 	for i in option_children:

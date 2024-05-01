@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bff0i355eqbbn"]
+[gd_scene load_steps=8 format=3 uid="uid://bff0i355eqbbn"]
 
 [ext_resource type="Script" path="res://player/attack/pan.gd" id="1_himod"]
 [ext_resource type="Texture2D" uid="uid://dfdfug8l2ayuo" path="res://player/attack/pan.png" id="2_0vvqm"]
+[ext_resource type="AudioStream" uid="uid://bxrgc65gohybq" path="res://player/attack/swing-whoosh-weapon-1-189819.mp3" id="3_3yojt"]
 [ext_resource type="Script" path="res://player/attack/AnimationPlayer.gd" id="3_qlbjv"]
 
 [sub_resource type="Animation" id="Animation_oget5"]
@@ -22,6 +23,21 @@ tracks/0/keys = {
 "update": 0,
 "values": []
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_3yojt")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4hyw4"]
 _data = {
@@ -49,5 +65,8 @@ libraries = {
 "": SubResource("AnimationLibrary_4hyw4")
 }
 script = ExtResource("3_qlbjv")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+autoplay = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

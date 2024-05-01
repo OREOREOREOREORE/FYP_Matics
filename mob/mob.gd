@@ -8,7 +8,9 @@ var EXP = 100 #12
 
 #@export var mob_scene: PackedScene
 @onready var player = get_node("../Player")
-	
+@onready var word = get_node("../")
+@onready var audio = $Dead_sound
+
 func _physics_process(delta):
 	
 	var direction = global_position.direction_to(player.global_position)
@@ -21,12 +23,17 @@ func _physics_process(delta):
 	elif position.x < player.global_position.x:
 		$mob_img.flip_h = false
 		$mob_collision.scale.x = 1
-	
 	move_and_slide()
 	
 func take_damage(ATK_O: int):
+	#audio.play()
 	HP = HP - (ATK_O - DEF)	
-	if HP <= 0:
+	if HP <= 0:	
 		player.exp_up(EXP)
+		word.mob_number += 1
 		print(player.EXP)
-		queue_free()
+		audio.play()
+		set_physics_process(false)
+		
+func _on_dead_sound_finished():
+	queue_free()

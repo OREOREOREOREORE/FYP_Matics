@@ -66,7 +66,7 @@ const UPGRADE = {
 					"details": "test",
 					"ATK": 40,
 					"deg": 90,
-					"speed": 0.1
+					"speed": 0.2
 				}
 			]
 	},

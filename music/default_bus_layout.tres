@@ -12,5 +12,5 @@ bus/2/name = &"Game_BGM"
 bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false
-bus/2/volume_db = -24.948
+bus/2/volume_db = -80.0
 bus/2/send = &"Master"

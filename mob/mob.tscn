@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://djlvhqcanrm5v"]
+[gd_scene load_steps=9 format=3 uid="uid://djlvhqcanrm5v"]
 
 [ext_resource type="Script" path="res://mob/mob.gd" id="1_tbygh"]
 [ext_resource type="Texture2D" uid="uid://doxu40hwiygpb" path="res://Image/mobs/assignment.png" id="2_u7uwg"]
 [ext_resource type="PackedScene" uid="uid://8gtgrtoq3k6r" path="res://utility/HurtBox.tscn" id="3_1c753"]
 [ext_resource type="PackedScene" uid="uid://c4heeiyy0ip4d" path="res://utility/HitBox.tscn" id="4_sjod2"]
+[ext_resource type="AudioStream" uid="uid://d0kt4gqym0ej5" path="res://mob/ripping-paper-quick-167418.mp3" id="5_cf7xo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ebpep"]
 animations = [{
@@ -54,3 +55,9 @@ collision_mask = 16
 
 [node name="HitBoxCollision" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("CircleShape2D_3fvlu")
+
+[node name="Dead_sound" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("5_cf7xo")
+
+[connection signal="finished" from="Dead_sound" to="." method="_on_dead_sound_finished"]

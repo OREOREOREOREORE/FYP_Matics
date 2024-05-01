@@ -1,7 +1,7 @@
 extends Node2D
 
 var screen_size
-var mob_number = 100
+var mob_number = 10
 var mob_x_position
 var mob_y_position
 var hp_monster_x
@@ -20,6 +20,8 @@ func _physics_process(delta):
 	$CanvasLayer/tLabel.text = str("%d:%02d" % [floor($Timer.time_left / 60), int($Timer.time_left) % 60])
 	if($Player.HP<80 && hp_monster_num<1):
 		var monster = preload("res://item/monster.tscn").instantiate()
+		
+		vpr = get_viewport_rect().size * randf_range(1.5,2)
 		
 		if(randf( ) >= 0.5):
 			hp_monster_x = $Player.global_position.x + vpr.x/3
