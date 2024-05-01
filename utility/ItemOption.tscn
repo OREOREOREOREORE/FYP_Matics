@@ -8,11 +8,11 @@
 process_mode = 3
 custom_minimum_size = Vector2(180, 50)
 anchors_preset = -1
-anchor_right = 0.216
+anchor_right = 0.191
 anchor_bottom = 0.397
 offset_left = 1.0
 offset_top = 1.0
-offset_right = 0.167994
+offset_right = -0.0320168
 offset_bottom = -0.25601
 color = Color(0.180392, 0.180392, 0.180392, 0.666667)
 script = ExtResource("1_51tis")
@@ -28,10 +28,10 @@ color = Color(0, 0, 0, 1)
 
 [node name="ItemImg" type="TextureRect" parent="ColorRect"]
 layout_mode = 0
-offset_left = -8.0
-offset_top = 5.0
-offset_right = 145.0
-offset_bottom = 125.0
+offset_left = 12.0
+offset_top = 4.0
+offset_right = 100.0
+offset_bottom = 98.0
 rotation = -6.28319
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_il8h0")
@@ -52,13 +52,14 @@ uppercase = true
 
 [node name="item_description" type="Label" parent="."]
 layout_mode = 0
-offset_left = 31.0
-offset_top = 77.0
-offset_right = 209.0
+offset_left = 6.0
+offset_top = 76.0
+offset_right = 153.0
 offset_bottom = 220.0
 theme_override_fonts/font = ExtResource("3_x21ca")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 18
 text = "Description"
+autowrap_mode = 3
 
 [node name="item_level" type="Label" parent="."]
 layout_mode = 0
@@ -72,10 +73,10 @@ text = "LV: 1"
 [node name="Button" type="TextureButton" parent="."]
 process_mode = 3
 layout_mode = 0
-offset_left = 252.0
+offset_left = 233.0
 offset_top = -1.0
-offset_right = 506.0
-offset_bottom = 252.0
+offset_right = 487.0
+offset_bottom = 233.0
 rotation = 1.57079
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

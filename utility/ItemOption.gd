@@ -6,6 +6,7 @@ extends ColorRect
 @onready var itemIcon = $ColorRect/ItemImg
 @onready var button: TextureButton = $Button
 
+
 var item = null
 
 @onready var player = get_tree().get_first_node_in_group("Player")
@@ -18,15 +19,17 @@ func _ready():
 	
 	#ATK = UpgradeDb.UPGRADE["pan"].upgrade[level].ATKa
 	#assert(button.pressed.connect(click) == OK)
-	print(item)
-	itemName.text = UpgradeDb.UPGRADE[item]["displayname"] #.["displayname"]
-	#itemLevel.text = UpgradeDb.UPGRADE[item].upgrade[level].details
-	#itemDescription.text = UpgradeDb.UPGRADE[item].upgrade[level].details
+	print(item) #.["displayname"]
 	
-	#itemIcon.texture = load(UpgradeDb.UPGRADE[item]["icon"])
+	itemName.text = UpgradeDb.UPGRADE[item]["displayname"]
+	itemIcon.texture = load(UpgradeDb.UPGRADE[item]["icon"])
+	itemLevel.text = "LV: " + str(UpgradeDb.UPGRADE[item]["level"]+1) 
+	itemDescription.text = UpgradeDb.UPGRADE[item]["details"]
+	
+	
 
 func update_UI(item, level):
-	pass
+	pass 
 
 func click():
 	print("clicked: " + item)
