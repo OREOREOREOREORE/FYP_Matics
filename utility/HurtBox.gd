@@ -15,6 +15,7 @@ func _on_area_entered(area) -> void:
 		
 	if area.is_in_group("player_weapon_attack"):
 		owner.take_damage(area.ATK)
+		print("hitted!")
 	else: #has method
 		owner.take_damage(area.owner.ATK)
 		collistion.set_deferred("disabled", true)

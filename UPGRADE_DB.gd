@@ -1,32 +1,29 @@
 extends Node
 
+const Weapon_Path = "res://Image/WeaponImg/"
 
 const UPGRADE = {
-	
 	"eraser": {
+		"icon": Weapon_Path + "Eraser.png",
 		"can_level_up": true,
+		"level": 1,
 		"displayname": "Eraser",
+		"details": "Thrown eraser at a random enemy",
 		"type": "weapon",
 		"upgrade":
 			[
 				{
-					"level": "Level: 1",
-					"details": "thrown at a random enemy",
-					"ATK": 5,
+					"ATK": 20,
 					"speed": 0.5
 				},
 				
 				{
-					"level": "Level: 2",
-					"details": "thrown at a random enemy",
-					"ATK": 5,
+					"ATK": 20,
 					"speed": 0.5
 				},
 				
 				{
-					"level": "Level: 3",
-					"details": "thrown at a random enemy",
-					"ATK": 8,
+					"ATK": 30,
 					"speed": 0.75
 				}
 				
@@ -34,9 +31,12 @@ const UPGRADE = {
 	},
 	
 	"pan": {
+		"icon": Weapon_Path + "pan.png",
 		"can_level_up": true,
 		"displayname": "Pan",
+		"level": 1,
 		"type": "weapon",
+		"details": "A forceful pen slash toward to the mouse position",
 		"upgrade":
 			[
 				{
@@ -47,7 +47,6 @@ const UPGRADE = {
 				
 				{
 					"level": "Level: 1",
-					"details": "test",
 					"ATK": 30,
 					"deg": 45,
 					"speed": 0.3
@@ -55,7 +54,6 @@ const UPGRADE = {
 				
 				{
 					"level": "Level: 2",
-					"details": "test",
 					"ATK": 30,
 					"deg": 60,
 					"speed": 0.2
@@ -66,14 +64,17 @@ const UPGRADE = {
 					"details": "test",
 					"ATK": 40,
 					"deg": 90,
-					"speed": 0.2
+					"speed": 0.1
 				}
 			]
 	},
 	
 	"speed":{
+		"icon": Weapon_Path + "skateboard.png",
 		"can_level_up": true,
-		"displayname": "Boot",
+		"displayname": "SkateBoard",
+		"level": 1,
+		"details": "Movement Speed Increased by an additional 50% of base speed",
 		"type": "upgrade",
 		"upgrade":[
 			{
@@ -82,7 +83,6 @@ const UPGRADE = {
 			
 			{
 				"level": "Level: 1",
-				"details": "",
 				"value": 120
 			},
 			
@@ -101,8 +101,11 @@ const UPGRADE = {
 	},
 	
 	"hp":{
+		"icon": Weapon_Path + "red_bull.png",
 		"can_level_up": true,
 		"displayname": "HP",
+		"level": 1,
+		"details": "Increase HP by 10",
 		"type": "upgrade",
 		"upgrade":
 			[
@@ -131,8 +134,11 @@ const UPGRADE = {
 	},
 	
 	"defend":{
+		"icon": Weapon_Path + "helmet.png",
 		"can_level_up": true,
+		"level": 1,
 		"displayname": "CANTHURTME",
+		"details": "Reduces Damage by 5",
 		"type": "upgrade",
 		"upgrade":
 			[
@@ -141,84 +147,52 @@ const UPGRADE = {
 				},
 				
 				{
-				"level": "Level: 1",
 				"details": "",
 				"value": 15
 				},
 				
 				{
-					"level": "Level: 2",
 					"details": "",
 					"value": 20
 				},
 				
 				{
-					"level": "Level: 3",
 					"details": "",
 					"value": 25
 				},
 			]
 	},
 	
-	"damage":{
-		"can_level_up": true,
-		"displayname": "I AM STRONG",
-		"type": "upgrade",
-		"upgrade":
-			[
-				{
-				"level": "Level: 1",
-				"details": "",
-				"value": 15
-				},
-				
-				{
-					"level": "Level: 2",
-					"details": "",
-					"value": 20
-				},
-				
-				{
-					"level": "Level: 3",
-					"details": "",
-					"value": 25
-				},
-			]
-	},
-	
-	"size": {
-		"can_level_up": true,
-		"displayname": "DreamBIG",
-	},
 	
 	"nuts":{
+		"icon": Weapon_Path + "pencil_case.png",
 		"can_level_up": true,
+		"level": 1,
 		"displayname": "nuts",
+		"details": "Your spells now spawn 1 more additional attack",
 		"upgrade":
 			[
 				{
-				"level": "Level: 1",
-				"details": "+1",
 				"additional_attack": 1
 				},
 				
 				{
-					"level": "Level: 2",
-					"details": "+2",
 					"additional_attack": 2
 				},
 				
 				{
 					"level": "Level: 3",
-					"details": "+3",
 					"additional_attack": 3
 				},
 			]
 	},
 	
 	"food":{
+		"icon": Weapon_Path + "monster.png",
 		"can_level_up": false,
-		"displayname": "HELP!",
+		"level": 1,
+		"displayname": "HEAL",
+		"details":"Heals you for 10 health",
 		"type": "item",
 		"upgrade":
 			[

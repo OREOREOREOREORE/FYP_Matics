@@ -8,6 +8,7 @@ extends ColorRect
 
 
 var item = null
+var level
 
 @onready var player = get_tree().get_first_node_in_group("Player")
 signal selected_upgrade(upgrade)
@@ -20,10 +21,12 @@ func _ready():
 	#ATK = UpgradeDb.UPGRADE["pan"].upgrade[level].ATKa
 	#assert(button.pressed.connect(click) == OK)
 	print(item) #.["displayname"]
-	
+	if item == null:
+		item = "food"
+	print("My item" + str(item))
 	itemName.text = UpgradeDb.UPGRADE[item]["displayname"]
 	itemIcon.texture = load(UpgradeDb.UPGRADE[item]["icon"])
-	itemLevel.text = "LV: " + str(UpgradeDb.UPGRADE[item]["level"]+1) 
+	itemLevel.text = "LV: " + str(level) 
 	itemDescription.text = UpgradeDb.UPGRADE[item]["details"]
 	
 	

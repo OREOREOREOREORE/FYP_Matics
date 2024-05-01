@@ -144,7 +144,26 @@ func level_up():
 	var optionsmax = 3
 	while options < optionsmax:
 		var optionChoice = itemOptions.instantiate()
+		print(optionChoice)
 		optionChoice.item = pickRandom_item()
+		match optionChoice.item :
+			"eraser":
+				optionChoice.level = eraser_level
+				print(eraser_level)
+				print(optionChoice.level)
+			"pan":
+				optionChoice.level = pan_level
+			"hp":
+				optionChoice.level = hp_level
+			"defend":
+				optionChoice.level = def_level
+			"speed":
+				optionChoice.level = spd_level
+			"food":
+				HP += 20
+				HP = clamp(HP,0,100)
+			"nuts":
+				optionChoice.level = additional_attack
 		
 		print(optionChoice.item)
 		upgradeOpts.add_child(optionChoice)
@@ -166,18 +185,26 @@ func upgrade_character(upgrade):
 			hp_level += 1
 			HP = UpgradeDb.UPGRADE["hp"].upgrade[hp_level].value
 			player_ui.update_healthbar()
+			if hp_level == 3:
+				level_max.append(upgrade)	
 		"defend":
 			def_level += 1
 			DEF = UpgradeDb.UPGRADE["defend"].upgrade[def_level].value
+			if def_level == 3:
+				level_max.append(upgrade)	
 		"speed":
 			spd_level += 1
 			SPD = UpgradeDb.UPGRADE["speed"].upgrade[spd_level].value
+			if spd_level == 3:
+				level_max.append(upgrade)	
 			print(SPD)
 		"food":
-			player.HP += 20
-			HP = clamp(HP,0,player.HP)
+			HP += 20
+			HP = clamp(HP,0,100)
 		"nuts":
 			additional_attack =  UpgradeDb.UPGRADE["nuts"].upgrade[additional_attack].additional_attack
+			if additional_attack == 3:
+				level_max.append(upgrade)	
 	attack()
 	var option_children = upgradeOpts.get_children()
 	for i in option_children:
@@ -192,9 +219,9 @@ func upgrade_character(upgrade):
 	
 func update_EXP_required():
 	var exp_cap = 0
-	if Level < 10:
+	if Level < 20:
 		exp_cap = Level * 125
-	elif Level < 20:
+	elif Level < 40:
 		exp_cap = 124 * (Level - 19) * 6
 	else:
 		exp_cap = 255 * (Level-39) * 12

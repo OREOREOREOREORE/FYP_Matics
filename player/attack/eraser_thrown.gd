@@ -2,7 +2,7 @@ extends Area2D
 
 var HP = 1
 var SPD = 50
-var ATK = 10
+var ATK
 var KB 
 var ATK_Size = 1.0
 @export var level = 0

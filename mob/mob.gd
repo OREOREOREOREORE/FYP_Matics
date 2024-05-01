@@ -34,6 +34,8 @@ func take_damage(ATK_O: int):
 		print(player.EXP)
 		audio.play()
 		set_physics_process(false)
+		$HurtBox/HurtBoxCollision.set_deferred("disabled", true)
+		$HitBox/HitBoxCollision.set_deferred("disabled", true)
 		
 func _on_dead_sound_finished():
 	queue_free()

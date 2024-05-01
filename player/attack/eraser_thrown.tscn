@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://dad6x2otoinot" path="res://movement-swipe-whoosh-3-186577.mp3" id="3_tkoas"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_43a1e"]
-size = Vector2(5, 4.75)
+size = Vector2(5.5, 7)
 
 [node name="Eraser_thrown" type="Area2D" groups=["player_weapon_attack"]]
 top_level = true
@@ -21,7 +21,7 @@ texture = ExtResource("1_6mpik")
 [node name="eraser_HITBOX" type="CollisionShape2D" parent="."]
 light_mask = 8
 visibility_layer = 4
-position = Vector2(5, 0.375)
+position = Vector2(5.25, 0.5)
 shape = SubResource("RectangleShape2D_43a1e")
 debug_color = Color(0.447059, 0.552941, 0.607843, 0.419608)
 
