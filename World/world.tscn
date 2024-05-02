@@ -1,16 +1,106 @@
 [gd_scene load_steps=9 format=3 uid="uid://1advouodn6rx"]
 
 [ext_resource type="PackedScene" uid="uid://drvhj82u3lxyw" path="res://player/Player.tscn" id="1_55nb4"]
-[ext_resource type="Script" path="res://world/world.gd" id="1_eb3vk"]
-[ext_resource type="Script" path="res://world/dead_HUD_container.gd" id="4_4t6fp"]
 [ext_resource type="FontFile" uid="uid://cmnxp73v72n38" path="res://font/MathTimeRegular-MwXw.ttf" id="5_3kv20"]
 [ext_resource type="PackedScene" uid="uid://dou6t3nt6ou1u" path="res://World/map.tscn" id="5_p8k73"]
 [ext_resource type="PackedScene" uid="uid://djlvhqcanrm5v" path="res://mob/mob.tscn" id="6_pisut"]
 [ext_resource type="AudioStream" uid="uid://c2g71ecu38fha" path="res://music/Karmic_Lament_BG.mp3" id="7_pj8b7"]
 [ext_resource type="FontFile" uid="uid://dbunwsilhul38" path="res://font/ThaleahFat.ttf" id="8_no6wf"]
 
+[sub_resource type="GDScript" id="GDScript_0n0u3"]
+script/source = "extends Node2D
+
+var screen_size
+var mob_number = 10
+var mob_x_position
+var mob_y_position
+var hp_monster_x
+var hp_monster_y
+var vpr
+var hp_monster_num = 0
+var box_num = 0
+
+
+
+func _ready():
+	$dead_HUD.set_visible(false) # Make sure the HUD is not visible at the game start
+	get_tree().paused = false
+	
+func _physics_process(delta):
+	$CanvasLayer/tLabel.text = str(\"%d:%02d\" % [floor($Timer.time_left / 60), int($Timer.time_left) % 60])
+	if($Player.HP<80 && hp_monster_num<1):
+		var monster = preload(\"res://item/monster.tscn\").instantiate()
+		
+		vpr = get_viewport_rect().size * randf_range(1.5,2)
+		
+		if(randf( ) >= 0.5):
+			hp_monster_x = $Player.global_position.x + vpr.x/3
+		else:
+			hp_monster_x = $Player.global_position.x - vpr.x/3
+		if(randf( ) >= 0.5):
+			hp_monster_y = $Player.global_position.y + vpr.y/3
+		else:
+			hp_monster_y = $Player.global_position.y - vpr.y/3
+			
+		monster.position = Vector2(hp_monster_x, hp_monster_y)
+		add_child(monster)
+		hp_monster_num+=1
+		print(\"Monsternum\" + str(hp_monster_num))
+	
+	if box_num == 0:	
+		var box = preload(\"res://item/pen_box.tscn\").instantiate()
+		box.position = Vector2($Player.global_position.x + 50,  $Player.global_position.y + 50)
+		add_child(box)
+		box_num+=1
+		
+
+func _on_mob_spawn_timer_timeout():
+	
+	if mob_number > 0:
+		vpr = get_viewport_rect().size * randf_range(1.5,2)
+		
+		var mob = preload(\"res://mob/mob.tscn\").instantiate()
+		
+		if(randf( ) >= 0.5):
+			mob_x_position = $Player.global_position.x + vpr.x/2
+		else:
+			mob_x_position = $Player.global_position.x - vpr.x/2
+		if(randf( ) >= 0.5):
+			mob_y_position = $Player.global_position.y + vpr.y/2
+		else:
+			mob_y_position = $Player.global_position.y - vpr.y/2
+			
+		mob.position = Vector2(mob_x_position, mob_y_position)
+		add_child(mob)
+		mob_number -= 1
+
+func _on_player_dead():
+	$dead_HUD.set_visible(true)
+
+
+func _on_timer_timeout():
+	get_tree().paused = true
+	$dead_HUD.set_visible(true)
+	$dead_HUD/dead_HUD_container/failed_label.text = \"Win!\"
+
+
+
+func _on_audio_stream_player_finished():
+	$AudioStreamPlayer.play()
+"
+
+[sub_resource type="GDScript" id="GDScript_2m4o3"]
+script/source = "extends VBoxContainer
+
+func _on_retry_pressed():
+	get_tree().change_scene_to_file(\"res://World/world.tscn\")
+
+func _on_quit_pressed():
+	get_tree().quit()
+"
+
 [node name="World" type="Node2D"]
-script = ExtResource("1_eb3vk")
+script = SubResource("GDScript_0n0u3")
 
 [node name="Map" parent="." instance=ExtResource("5_p8k73")]
 
@@ -47,7 +137,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("4_4t6fp")
+script = SubResource("GDScript_2m4o3")
 
 [node name="failed_label" type="Label" parent="dead_HUD/dead_HUD_container"]
 layout_mode = 2
