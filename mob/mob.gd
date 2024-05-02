@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var SPD = 100
 var HP = 20
-var DEF = 5
+var DEF = 3
 var ATK  = 15
 var EXP = 50 #12
 
@@ -10,6 +10,7 @@ var EXP = 50 #12
 @onready var player = get_node("../Player")
 @onready var word = get_node("../")
 @onready var audio = $Dead_sound
+@onready var dmgNumber = $DmgNumber
 
 func _physics_process(delta):
 	
@@ -28,6 +29,8 @@ func _physics_process(delta):
 func take_damage(ATK_O: int):
 	#audio.play()
 	HP = HP - (ATK_O - DEF)	
+	DmgIndicator.displayDmg(ATK_O-DEF, dmgNumber.global_position)
+	print(ATK_O-DEF)
 	if HP <= 0:	
 		$mob_img.frame = 1
 		player.exp_up(EXP)

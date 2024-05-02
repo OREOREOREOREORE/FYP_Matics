@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dxp8qggytwc4e"]
+
+[node name="DamageIndicator" type="Node2D"]

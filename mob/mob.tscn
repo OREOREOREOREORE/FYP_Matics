@@ -64,4 +64,7 @@ shape = SubResource("CircleShape2D_3fvlu")
 process_mode = 3
 stream = ExtResource("5_cf7xo")
 
+[node name="DmgNumber" type="Node2D" parent="."]
+position = Vector2(0, -28)
+
 [connection signal="finished" from="Dead_sound" to="." method="_on_dead_sound_finished"]

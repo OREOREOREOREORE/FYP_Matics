@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://drvhj82u3lxyw"]
 
 [ext_resource type="Script" path="res://player/Player.gd" id="1_i87bs"]
-[ext_resource type="Texture2D" uid="uid://bfro2rrkwgdod" path="res://Image/player/Mainchartest3.png" id="2_djadr"]
+[ext_resource type="Texture2D" uid="uid://c2fgsn6a5md63" path="res://Image/player/earth_character_.png" id="2_so1wi"]
 [ext_resource type="PackedScene" uid="uid://8gtgrtoq3k6r" path="res://utility/HurtBox.tscn" id="3_f5pw2"]
 [ext_resource type="PackedScene" uid="uid://8lnpeupach1o" path="res://utility/player_ui.tscn" id="4_ddaov"]
 
@@ -24,7 +24,8 @@ script = ExtResource("1_i87bs")
 [node name="playerImg" type="Sprite2D" parent="."]
 position = Vector2(9.53674e-07, 0)
 scale = Vector2(0.226563, 0.216937)
-texture = ExtResource("2_djadr")
+texture = ExtResource("2_so1wi")
+vframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_suf80")
