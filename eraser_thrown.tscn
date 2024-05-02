@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ce30356fq7tnq" path="res://player/attack/Eraser.png" id="1_6mpik"]
 [ext_resource type="Script" path="res://player/attack/eraser_thrown.gd" id="1_hisci"]
-[ext_resource type="AudioStream" uid="uid://smraa6ksth0q" path="res://music/movement-swipe-whoosh-3-186577.mp3" id="3_tkoas"]
+[ext_resource type="AudioStream" uid="uid://dad6x2otoinot" path="res://movement-swipe-whoosh-3-186577.mp3" id="3_tkoas"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_43a1e"]
 size = Vector2(5.5, 7)
