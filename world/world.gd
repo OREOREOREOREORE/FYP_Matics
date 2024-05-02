@@ -73,3 +73,7 @@ func _on_timer_timeout():
 	$dead_HUD.set_visible(true)
 	$dead_HUD/dead_HUD_container/failed_label.text = "Win!"
 
+
+
+func _on_audio_stream_player_finished():
+	$AudioStreamPlayer.play()

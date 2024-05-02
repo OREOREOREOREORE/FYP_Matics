@@ -73,7 +73,7 @@ text = "QUIT
 position = Vector2(298, -106)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 600.0
+wait_time = 300.0
 autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -97,3 +97,4 @@ text = "
 [connection signal="pressed" from="dead_HUD/dead_HUD_container/retry" to="dead_HUD/dead_HUD_container" method="_on_retry_pressed"]
 [connection signal="pressed" from="dead_HUD/dead_HUD_container/quit" to="dead_HUD/dead_HUD_container" method="_on_quit_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
